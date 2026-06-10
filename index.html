@@ -24,6 +24,23 @@
       --font-body: 'Inter', sans-serif;
     }
 
+    /* ── SKELETON LOADERS ── */
+    @keyframes shimmer {
+      0%   { background-position: -600px 0; }
+      100% { background-position:  600px 0; }
+    }
+    .skel-line {
+      border-radius: 6px; height: 14px; margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
+      background-size: 600px 100%;
+      animation: shimmer 1.4s infinite linear;
+    }
+    .skel-img  { height: 100%; background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%); background-size: 600px 100%; animation: shimmer 1.4s infinite linear; border-radius: 0; }
+    .skel-tag  { width: 60px; height: 20px; margin-bottom: 12px; }
+    .skel-title{ height: 16px; }
+    .skel-desc { height: 12px; }
+    .skeleton-card { pointer-events: none; }
+
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
@@ -444,90 +461,15 @@
     </div>
   </div>
 
-  <!-- LATEST REVIEWS GRID -->
+  <!-- LATEST REVIEWS GRID — loaded dynamically from Google Sheets -->
   <div class="section-head" style="margin-top:48px">
     <h2 class="section-title">Latest <span>Reviews</span></h2>
   </div>
-  <div class="cards-grid" data-fade>
-
-    <div class="card">
-      <div class="card-img" style="background:linear-gradient(135deg,#0a0f1a,#101828)">📷</div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag new">✦ New</span><span class="tag">Camera</span></div>
-        <h3>Sony ZV-E10 II Review: Best Camera for Indian YouTubers?</h3>
-        <p>Excellent autofocus, great video, and a price that makes sense for creators starting out.</p>
-        <div class="card-foot">
-          <span class="card-price">₹64,990</span>
-          <span class="rating card-meta">★★★★ 4.2/5</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img" style="background:linear-gradient(135deg,#100a1a,#1a1028)">⌚</div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag hot">🔥 Trending</span><span class="tag">Wearables</span></div>
-        <h3>Apple Watch Series 10 vs Samsung Galaxy Watch 7 — India Comparison</h3>
-        <p>Both are great. But one is a much better deal for Indian buyers. We break it down.</p>
-        <div class="card-foot">
-          <span class="card-price">From ₹41,900</span>
-          <span class="rating card-meta">★★★★½ 4.5/5</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img" style="background:linear-gradient(135deg,#0a1a0f,#0d2018)">🔋</div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag budget">💚 Best Budget</span><span class="tag">Accessories</span></div>
-        <h3>Top 7 Power Banks Under ₹1,500 That Actually Last</h3>
-        <p>We tested 12 budget power banks. Only 7 were worth buying. Here's our shortlist.</p>
-        <div class="card-foot">
-          <span class="card-price">₹799 – ₹1,499</span>
-          <span class="rating card-meta">★★★★ 4.0/5</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img" style="background:linear-gradient(135deg,#1a100a,#281a0d)">🖥️</div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag">Smart Home</span></div>
-        <h3>Best Smart TVs Under ₹30,000 in India (2025): Mi vs Sony vs LG</h3>
-        <p>We compared picture quality, smart features, and reliability across 6 models.</p>
-        <div class="card-foot">
-          <span class="card-price">₹18,999 – ₹29,999</span>
-          <span class="rating card-meta">★★★½ 3.8/5</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img" style="background:linear-gradient(135deg,#0f0a1a,#190f2a)">🎮</div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag hot">🔥 Hot</span><span class="tag">Gaming</span></div>
-        <h3>Asus ROG Ally X Review: The Best Handheld Gaming PC for India?</h3>
-        <p>Windows gaming in your hands — but does it run cool enough in Indian summers?</p>
-        <div class="card-foot">
-          <span class="card-price">₹89,990</span>
-          <span class="rating card-meta">★★★★ 4.3/5</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img" style="background:linear-gradient(135deg,#0a1515,#0d2020)">🌐</div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag new">✦ New</span><span class="tag">Networking</span></div>
-        <h3>Best Wi-Fi Routers for Indian Homes in 2025 — Speed vs Price</h3>
-        <p>Thick walls, power cuts, heavy streaming — we tested routers for real Indian homes.</p>
-        <div class="card-foot">
-          <span class="card-price">₹2,499 – ₹14,999</span>
-          <span class="rating card-meta">★★★★ 4.1/5</span>
-        </div>
-      </div>
-    </div>
-
+  <div class="cards-grid" data-fade id="blog-cards-grid">
+    <!-- Skeleton loaders shown while fetching -->
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-line skel-tag"></div><div class="skel-line skel-title"></div><div class="skel-line skel-title" style="width:70%"></div><div class="skel-line skel-desc"></div><div class="skel-line skel-desc" style="width:60%"></div></div></div>
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-line skel-tag"></div><div class="skel-line skel-title"></div><div class="skel-line skel-title" style="width:70%"></div><div class="skel-line skel-desc"></div><div class="skel-line skel-desc" style="width:60%"></div></div></div>
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-line skel-tag"></div><div class="skel-line skel-title"></div><div class="skel-line skel-title" style="width:70%"></div><div class="skel-line skel-desc"></div><div class="skel-line skel-desc" style="width:60%"></div></div></div>
   </div>
 </div>
 
@@ -595,13 +537,111 @@
 </footer>
 
 <script>
+  // ─────────────────────────────────────────────
+  // CONFIGURATION — update SHEET_ID after setup
+  // ─────────────────────────────────────────────
+  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=1980989218&single=true&output=csv';
+  // To add new blogs: add a row in your Google Sheet and set published = TRUE
+
+  // Gradient palettes for cards (cycles through these)
+  const GRADIENTS = [
+    'linear-gradient(135deg,#0a0f1a,#101828)',
+    'linear-gradient(135deg,#100a1a,#1a1028)',
+    'linear-gradient(135deg,#0a1a0f,#0d2018)',
+    'linear-gradient(135deg,#1a100a,#281a0d)',
+    'linear-gradient(135deg,#0f0a1a,#190f2a)',
+    'linear-gradient(135deg,#0a1515,#0d2020)',
+    'linear-gradient(135deg,#1a0a0f,#280d15)',
+    'linear-gradient(135deg,#0a0a1a,#0d0d28)',
+  ];
+
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
+    return lines.slice(1).map(line => {
+      // Handle quoted commas inside fields
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') { inQ = !inQ; }
+        else if (c === ',' && !inQ) { cols.push(cur); cur = ''; }
+        else { cur += c; }
+      }
+      cols.push(cur);
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = (cols[i] || '').replace(/^"|"$/g,'').trim());
+      return obj;
+    });
+  }
+
+  function badgeHTML(label, type) {
+    if (!label) return '';
+    const cls = { hot:'hot', new:'new', budget:'budget' }[type] || '';
+    const icons = { hot:'🔥 ', new:'✦ ', budget:'💚 ' };
+    return `<span class="tag ${cls}">${(icons[type]||'')}${label}</span>`;
+  }
+
+  function renderCards(blogs) {
+    const grid = document.getElementById('blog-cards-grid');
+    if (!blogs.length) {
+      grid.innerHTML = '<p style="color:var(--muted);grid-column:1/-1;text-align:center;padding:40px 0">No blog posts found. Add rows to your Google Sheet!</p>';
+      return;
+    }
+    grid.innerHTML = blogs.map((b, i) => {
+      const grad = GRADIENTS[i % GRADIENTS.length];
+      const href = b.url ? `href="${b.url}"` : 'href="#"';
+      return `
+        <a ${href} class="card" style="text-decoration:none;display:block;cursor:pointer" ${b.url ? '' : 'tabindex="-1"'}>
+          <div class="card-img" style="background:${grad}">${b.emoji || '📄'}</div>
+          <div class="card-body">
+            <div class="card-tags">
+              ${badgeHTML(b.badge_label, b.badge_type)}
+              ${b.category ? `<span class="tag">${b.category}</span>` : ''}
+            </div>
+            <h3>${b.title}</h3>
+            <p>${b.summary}</p>
+            <div class="card-foot">
+              ${b.price  ? `<span class="card-price">${b.price}</span>` : ''}
+              ${b.rating ? `<span class="rating card-meta">${b.rating}</span>` : ''}
+            </div>
+          </div>
+        </a>`;
+    }).join('');
+    // Re-run fade observer on new cards
+    grid.querySelectorAll('.card').forEach(el => observer.observe(el));
+  }
+
+  async function loadBlogs() {
+    const grid = document.getElementById('blog-cards-grid');
+    try {
+      const res  = await fetch(SHEET_CSV_URL);
+      if (!res.ok) throw new Error('fetch failed');
+      const text = await res.text();
+      const all  = parseCSV(text);
+      const live = all.filter(b => b.published === 'TRUE' || b.published === 'true' || b.published === '1');
+      renderCards(live);
+    } catch (err) {
+      console.error('Blog load error:', err);
+      grid.innerHTML = `
+        <div style="grid-column:1/-1;background:var(--surface);border:1px solid var(--amber);border-radius:12px;padding:28px;color:var(--muted);font-size:0.88rem">
+          <strong style="color:var(--amber)">⚠️ Could not load blogs.</strong> Check that your Sheet is published to web (File → Share → Publish to web → CSV).
+        </div>`;
+    }
+  }
+
+  // ─────────────────────────────────────────────
   // Scroll fade-in animation
+  // ─────────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); }
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
+
+  // Load blogs on page load
+  loadBlogs();
 </script>
 
 </body>
