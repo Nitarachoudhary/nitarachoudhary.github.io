@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iOS 27: Every New Feature Explained — Siri AI, Liquid Glass, Performance & More | GadgetPulse India</title>
+  <meta name="description" content="iOS 27 full feature breakdown — Siri AI, 30% faster apps, Liquid Glass redesign, Photos AI, and everything coming to your iPhone in September 2026."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #111118; --card: #16161f; --border: #1e1e2e;
+      --pulse: #00d4ff; --amber: #ffb830; --green: #00c57a;
+      --text: #e8e8f0; --muted: #7a7a9a;
+      --font-head: 'Space Grotesk', sans-serif; --font-body: 'Inter', sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    a { color: var(--pulse); text-decoration: none; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.9); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 62px;
+    }
+    .logo { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--pulse); }
+
+    .hero-article {
+      background: linear-gradient(180deg, #0d1a0d 0%, var(--bg) 100%);
+      padding: 60px 5% 48px; text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-tag {
+      display: inline-block; background: #00c57a22; border: 1px solid var(--green);
+      color: var(--green); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero-article h1 {
+      font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700; line-height: 1.2; letter-spacing: -0.02em;
+      max-width: 800px; margin: 0 auto 16px;
+    }
+    .hero-article h1 span { color: var(--green); }
+    .article-meta { color: var(--muted); font-size: 0.85rem; margin-top: 16px; }
+    .article-meta strong { color: var(--text); }
+
+    .article-body { max-width: 760px; margin: 0 auto; padding: 48px 5% 80px; }
+
+    .lead {
+      font-size: 1.1rem; color: #b0b0c8; line-height: 1.8;
+      border-left: 3px solid var(--green); padding-left: 20px;
+      margin-bottom: 40px;
+    }
+
+    h2 { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 16px; }
+    h2 span { color: var(--green); }
+    h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin: 28px 0 10px; color: var(--amber); }
+    p { margin-bottom: 18px; color: #c8c8e0; }
+
+    .stat-row { display: flex; gap: 16px; margin: 24px 0 32px; flex-wrap: wrap; }
+    .stat-card {
+      flex: 1; min-width: 140px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; text-align: center;
+    }
+    .stat-card .num { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--green); }
+    .stat-card .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+    .feature-list { list-style: none; margin: 16px 0 28px; }
+    .feature-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.92rem; color: #c8c8e0;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li .bullet { color: var(--green); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+    .highlight-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      border-radius: 10px; padding: 20px 24px; margin: 28px 0;
+    }
+    .highlight-box p { margin: 0; color: var(--text); }
+
+    .compatibility-table {
+      width: 100%; border-collapse: collapse; margin: 20px 0 32px;
+      font-size: 0.88rem;
+    }
+    .compatibility-table th {
+      background: var(--surface); text-align: left;
+      padding: 10px 14px; font-family: var(--font-head);
+      font-size: 0.8rem; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .compatibility-table td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+      color: #c8c8e0;
+    }
+    .compatibility-table tr:hover td { background: var(--card); }
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .badge.full { background: #00c57a22; color: var(--green); border: 1px solid #00c57a44; }
+    .badge.partial { background: #ffb83022; color: var(--amber); border: 1px solid #ffb83044; }
+
+    .toc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; margin-bottom: 40px;
+    }
+    .toc h3 { color: var(--text); font-size: 0.9rem; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 14px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 6px; font-size: 0.88rem; }
+    .toc a { color: var(--muted); }
+    .toc a:hover { color: var(--green); }
+
+    .verdict-box {
+      background: linear-gradient(135deg, #00c57a0d, #0a0a0f);
+      border: 1px solid var(--green); border-radius: 14px;
+      padding: 28px; margin: 40px 0; text-align: center;
+    }
+    .verdict-box h3 { color: var(--green); font-size: 1.2rem; margin-bottom: 10px; }
+    .verdict-box p { color: var(--text); margin: 0; }
+
+    .timeline {
+      position: relative; padding-left: 28px;
+      border-left: 2px solid var(--border); margin: 20px 0 32px;
+    }
+    .timeline-item { position: relative; margin-bottom: 24px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -35px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--green); border: 2px solid var(--bg);
+    }
+    .timeline-item .date { font-size: 0.75rem; color: var(--green); font-weight: 600; margin-bottom: 4px; }
+    .timeline-item h4 { font-family: var(--font-head); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .timeline-item p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+    footer { border-top: 1px solid var(--border); padding: 24px 5%; text-align: center; color: var(--muted); font-size: 0.8rem; }
+
+    @media (max-width: 600px) {
+      .stat-row { gap: 10px; }
+      .stat-card .num { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">Gadget<span>Pulse</span></a>
+  <span style="font-size:0.82rem;color:var(--muted)">India's #1 Tech Blog</span>
+</nav>
+
+<div class="hero-article">
+  <div class="article-tag">📱 iOS 27 Deep Dive</div>
+  <h1>iOS 27: Every New Feature <span>Explained Simply</span></h1>
+  <p style="color:var(--muted);max-width:600px;margin:16px auto 0;font-size:0.95rem;">Siri AI, faster apps, smarter Photos, Liquid Glass 2.0 — everything coming to your iPhone in September 2026, explained in plain English.</p>
+  <div class="article-meta">
+    By <strong>GadgetPulse Team</strong> &nbsp;·&nbsp; June 9, 2026 &nbsp;·&nbsp; 10 min read
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="toc">
+    <h3>📋 Jump To Section</h3>
+    <ol>
+      <li><a href="#siri">Siri AI — The Big One</a></li>
+      <li><a href="#performance">Speed & Performance</a></li>
+      <li><a href="#design">Liquid Glass 2.0</a></li>
+      <li><a href="#photos">Photos App Upgrades</a></li>
+      <li><a href="#other">Other Key Features</a></li>
+      <li><a href="#compatibility">Which iPhones Get iOS 27</a></li>
+      <li><a href="#release">Release Date & Timeline</a></li>
+    </ol>
+  </div>
+
+  <p class="lead">iOS 27 is Apple's most ambitious iPhone update in years. Announced at WWDC 2026 on June 8, it packs a completely rebuilt Siri, massive speed improvements, and hundreds of quality-of-life fixes. Here's everything, explained simply.</p>
+
+  <h2 id="siri">🤖 Siri AI — <span>The Feature That Changes Everything</span></h2>
+  <p>Let's start with the biggest news. After years of being the butt of jokes compared to Google Assistant and ChatGPT, Siri has finally been completely rebuilt. Apple calls it "Siri AI" and it's powered by a custom version of Google's Gemini AI model.</p>
+
+  <div class="highlight-box">
+    <p>🔑 <strong>Key fact for India:</strong> Siri AI launches in English only first. Hindi and other Indian language support is not confirmed for the initial release. This may frustrate many Indian users.</p>
+  </div>
+
+  <ul class="feature-list">
+    <li><span class="bullet">✦</span><div><strong>Real conversations:</strong> You can now have back-and-forth chats with Siri, and it remembers what you said earlier in the same conversation — just like texting a friend.</div></li>
+    <li><span class="bullet">✦</span><div><strong>Personal context:</strong> Siri reads your Messages, Photos, Mail, and Notes (privately, on-device) to give you relevant answers. Ask "What did Priya say about the meeting?" and Siri will search your messages and tell you.</div></li>
+    <li><span class="bullet">✦</span><div><strong>On-screen awareness:</strong> Siri can see what's on your screen. Point your camera at a restaurant menu and ask Siri "which dish is vegetarian?" — it will tell you.</div></li>
+    <li><span class="bullet">✦</span><div><strong>Cross-app actions:</strong> "Send the photo I took at the party last Saturday to Rahul on WhatsApp" — Siri finds the photo and sends it, all in one go.</div></li>
+    <li><span class="bullet">✦</span><div><strong>Standalone Siri app:</strong> There's now a dedicated Siri app — like ChatGPT but built into your iPhone with full system access.</div></li>
+  </ul>
+
+  <h2 id="performance">⚡ Speed & Performance — <span>Feels Like a New Phone</span></h2>
+  <p>Apple spent serious engineering time making iOS 27 faster. These aren't made-up numbers — they are measurable, real-world improvements you will actually feel.</p>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="num">30%</div>
+      <div class="lbl">Faster app launch times</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">70%</div>
+      <div class="lbl">Faster Photos library loading</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">80%</div>
+      <div class="lbl">Faster AirDrop transfers</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">5×</div>
+      <div class="lbl">Faster external storage transfers</div>
+    </div>
+  </div>
+
+  <p>Apple also improved CPU scheduling for smoother multitasking — switching between apps should feel noticeably more fluid, especially on older iPhones.</p>
+
+  <h2 id="design">🎨 Liquid Glass 2.0 — <span>They Actually Listened</span></h2>
+  <p>Remember when iOS 26 changed the iPhone's look to a translucent "Liquid Glass" style and everyone complained? Apple heard the feedback. iOS 27 doesn't remove Liquid Glass, but gives you control over it.</p>
+
+  <ul class="feature-list">
+    <li><span class="bullet">✦</span><div><strong>Transparency slider:</strong> A system-wide setting lets you choose how transparent or opaque the glass effects look.</div></li>
+    <li><span class="bullet">✦</span><div><strong>More layered icons:</strong> App icons now look more three-dimensional and polished.</div></li>
+    <li><span class="bullet">✦</span><div><strong>Readability mode:</strong> A "reduce visual intensity" toggle for people who find the effects distracting.</div></li>
+  </ul>
+
+  <h2 id="photos">📸 Photos App — <span>AI Makes It Magical</span></h2>
+  <p>The Photos app in iOS 27 is dramatically more powerful, thanks to Apple Intelligence AI features.</p>
+
+  <ul class="feature-list">
+    <li><span class="bullet">✦</span><div><strong>Spatial Reframe:</strong> Change the composition of an old photo — crop it differently, adjust framing — using AI. Great for fixing that slightly-off group shot.</div></li>
+    <li><span class="bullet">✦</span><div><strong>Describe-to-edit:</strong> Type "remove the background" or "make the sky more dramatic" and the AI does it automatically.</div></li>
+    <li><span class="bullet">✦</span><div><strong>Smarter search:</strong> Find photos using natural language — "photos from the trip with my sister in 2024" — and it actually works.</div></li>
+  </ul>
+
+  <h2 id="other">🌟 Other Features Worth Knowing</h2>
+  <h3>Accessibility Improvements</h3>
+  <p>VoiceOver now gives richer, more detailed descriptions of images — a significant improvement for visually impaired users. Voice Control lets you describe buttons by what they do rather than memorizing names.</p>
+
+  <h3>Smarter Spotlight Search</h3>
+  <p>More relevant search suggestions across the entire system — finding apps, messages, files, and web results all got smarter.</p>
+
+  <h3>AirPlay Improvements</h3>
+  <p>Faster, more reliable connections to Apple TV and HomePod. Web audio no longer interrupts system audio — a long-standing annoyance finally fixed.</p>
+
+  <h2 id="compatibility">📋 Which iPhones Get iOS 27</h2>
+  <p>Great news: iOS 27 supports every device that ran iOS 26, going all the way back to the iPhone 11. But not all features work on all phones.</p>
+
+  <table class="compatibility-table">
+    <tr><th>Device</th><th>iOS 27</th><th>Full Siri AI</th></tr>
+    <tr><td>iPhone 17 Pro / Pro Max</td><td><span class="badge full">✓ Full</span></td><td><span class="badge full">✓ Full</span></td></tr>
+    <tr><td>iPhone 17 / 17 Plus</td><td><span class="badge full">✓ Full</span></td><td><span class="badge partial">Partial</span></td></tr>
+    <tr><td>iPhone 16 series</td><td><span class="badge full">✓ Full</span></td><td><span class="badge partial">Partial</span></td></tr>
+    <tr><td>iPhone 15 series</td><td><span class="badge full">✓ Full</span></td><td><span class="badge partial">Basic only</span></td></tr>
+    <tr><td>iPhone 14 series</td><td><span class="badge full">✓ Full</span></td><td><span class="badge partial">Basic only</span></td></tr>
+    <tr><td>iPhone 11, 12, 13 series</td><td><span class="badge full">✓ Full</span></td><td><span class="badge partial">Limited</span></td></tr>
+  </table>
+
+  <h2 id="release">📅 iOS 27 Release Timeline</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">June 8, 2026</div>
+      <h4>Developer Beta 1 Released</h4>
+      <p>Only for registered Apple developers. Buggy — not recommended for daily use.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">July 2026</div>
+      <h4>Public Beta</h4>
+      <p>Anyone can sign up at beta.apple.com to try it early. More stable but still has bugs.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">September 2026</div>
+      <h4>Official Public Release</h4>
+      <p>Free update for all compatible iPhones. Will likely arrive with the iPhone 18 Pro launch.</p>
+    </div>
+  </div>
+
+  <div class="verdict-box">
+    <h3>🏆 Should You Update?</h3>
+    <p>Absolutely yes — if you have an iPhone 13 or newer. The speed improvements alone are worth it. If you're in India and waiting for Hindi Siri AI, that might take a little longer, but everything else works perfectly from day one.</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 GadgetPulse India · <a href="../index.html">Home</a> · Affiliate Disclosure: We may earn commissions from links on this site.
+</footer>
+
+</body>
+</html>
