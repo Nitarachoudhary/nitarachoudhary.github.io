@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GadgetPulse India – Best Tech Reviews & Deals</title>
+  <meta name="description" content="Honest reviews of the best gadgets, smartphones, and tech products in India. Find top deals and save money."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0f;
+      --surface:   #111118;
+      --card:      #16161f;
+      --border:    #1e1e2e;
+      --pulse:     #00d4ff;
+      --pulse-dim: #00d4ff22;
+      --amber:     #ffb830;
+      --text:      #e8e8f0;
+      --muted:     #7a7a9a;
+      --tag-bg:    #1a1a2e;
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 62px;
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.25rem; font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--pulse); }
+    .nav-links { display: flex; gap: 28px; font-size: 0.88rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--pulse); color: #000;
+      font-family: var(--font-head); font-size: 0.82rem; font-weight: 600;
+      padding: 7px 16px; border-radius: 6px;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 5% 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--pulse-dim); border: 1px solid var(--pulse);
+      color: var(--pulse); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 20px; margin-bottom: 18px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--pulse);
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--pulse); font-style: normal; }
+    .hero p { color: var(--muted); font-size: 1rem; max-width: 420px; margin-bottom: 32px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--pulse); color: #000;
+      font-family: var(--font-head); font-weight: 600; font-size: 0.9rem;
+      padding: 12px 24px; border-radius: 8px;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); opacity:.9; }
+    .btn-ghost {
+      border: 1px solid var(--border); color: var(--text);
+      font-family: var(--font-head); font-weight: 500; font-size: 0.9rem;
+      padding: 12px 24px; border-radius: 8px;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: var(--pulse); background: var(--pulse-dim); }
+
+    /* hero right — stat card */
+    .hero-visual {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      position: relative; overflow: hidden;
+    }
+    .hero-visual::before {
+      content:''; position:absolute; top:-60px; right:-60px;
+      width:200px; height:200px; border-radius:50%;
+      background: radial-gradient(circle, #00d4ff18 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .stat-row { display: flex; gap: 20px; margin-bottom: 24px; }
+    .stat-box {
+      flex:1; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px;
+    }
+    .stat-box .num {
+      font-family: var(--font-head); font-size: 1.6rem; font-weight: 700;
+      color: var(--pulse);
+    }
+    .stat-box .lbl { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .featured-tag {
+      display: inline-block; background: var(--amber); color: #000;
+      font-family: var(--font-head); font-size: 0.7rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 4px; letter-spacing: .05em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .hero-visual h3 {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .hero-visual p { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+    .price-row { display: flex; align-items: center; justify-content: space-between; }
+    .price { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--amber); }
+    .cta-small {
+      background: var(--pulse); color: #000;
+      font-family: var(--font-head); font-size: 0.78rem; font-weight: 600;
+      padding: 7px 14px; border-radius: 6px;
+    }
+    .stars { color: var(--amber); font-size: 0.8rem; margin-bottom: 4px; }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden; padding: 10px 0;
+    }
+    .ticker {
+      display: flex; gap: 60px;
+      animation: scroll 30s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker:hover { animation-play-state: paused; }
+    @keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .tick-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: var(--muted); flex-shrink: 0;
+    }
+    .tick-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pulse); }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 64px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-family: var(--font-head); font-size: 1.4rem; font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-title span { color: var(--pulse); }
+    .see-all { font-size: 0.82rem; color: var(--pulse); }
+    .see-all:hover { text-decoration: underline; }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      transition: transform .2s, border-color .2s;
+      cursor: pointer;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--pulse); }
+    .card-img {
+      width: 100%; aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      position: relative;
+    }
+    .card-body { padding: 16px 18px 18px; }
+    .card-tags { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .tag {
+      background: var(--tag-bg); color: var(--muted);
+      font-size: 0.7rem; font-weight: 500;
+      padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border);
+    }
+    .tag.hot { background: #ff4c2222; color: #ff7055; border-color: #ff4c2244; }
+    .tag.new { background: var(--pulse-dim); color: var(--pulse); border-color: #00d4ff33; }
+    .tag.budget { background: #00c57a22; color: #00c57a; border-color: #00c57a44; }
+    .card h3 {
+      font-family: var(--font-head); font-size: 0.98rem; font-weight: 600;
+      line-height: 1.35; margin-bottom: 8px;
+    }
+    .card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+    .card-foot { display: flex; align-items: center; justify-content: space-between; }
+    .card-price { font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; color: var(--amber); }
+    .card-meta { font-size: 0.75rem; color: var(--muted); }
+    .rating { color: var(--amber); }
+
+    /* ── FEATURED (hero card) ── */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 20px; margin-bottom: 64px;
+    }
+    .card-featured {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color .2s;
+    }
+    .card-featured:hover { border-color: var(--pulse); }
+    .card-featured .card-img { aspect-ratio: 2.2/1; font-size: 5rem; }
+    .card-featured .card-body { flex: 1; padding: 22px; }
+    .card-featured h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .card-featured p { font-size: 0.88rem; margin-bottom: 18px; }
+    .affi-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--amber); color: #000;
+      font-family: var(--font-head); font-weight: 700; font-size: 0.82rem;
+      padding: 10px 18px; border-radius: 8px;
+      transition: opacity .15s;
+    }
+    .affi-btn:hover { opacity:.85; }
+
+    /* ── DEALS STRIP ── */
+    .deals-strip {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 32px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .deal-item {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .deal-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--tag-bg); display: flex; align-items: center;
+      justify-content: center; font-size: 1.4rem; flex-shrink: 0;
+    }
+    .deal-item h4 { font-family: var(--font-head); font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; }
+    .deal-item p { font-size: 0.78rem; color: var(--muted); margin: 0; }
+    .deal-price { font-family: var(--font-head); font-weight: 700; color: var(--amber); font-size: 0.88rem; }
+    .deal-old { text-decoration: line-through; color: var(--muted); font-size: 0.78rem; margin-left: 4px; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: linear-gradient(135deg, #00d4ff0d 0%, #0a0a0f 60%);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 48px; text-align: center;
+      margin: 0 5% 64px;
+    }
+    .newsletter h2 {
+      font-family: var(--font-head); font-size: 1.6rem; font-weight: 700;
+      margin-bottom: 10px; letter-spacing: -0.02em;
+    }
+    .newsletter p { color: var(--muted); margin-bottom: 24px; font-size: 0.92rem; }
+    .email-row {
+      display: flex; gap: 10px; max-width: 420px; margin: 0 auto;
+    }
+    .email-row input {
+      flex: 1; background: var(--card); border: 1px solid var(--border);
+      color: var(--text); font-family: var(--font-body); font-size: 0.88rem;
+      padding: 11px 16px; border-radius: 8px; outline: none;
+    }
+    .email-row input:focus { border-color: var(--pulse); }
+    .email-row button {
+      background: var(--pulse); color: #000;
+      font-family: var(--font-head); font-weight: 600; font-size: 0.88rem;
+      padding: 11px 20px; border-radius: 8px; border: none; cursor: pointer;
+      transition: opacity .2s;
+    }
+    .email-row button:hover { opacity: .85; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer .logo { font-size: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; font-size: 0.78rem; color: var(--muted); }
+    .footer-links a:hover { color: var(--pulse); }
+    .affiliate-note {
+      width: 100%; font-size: 0.72rem; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 16px; margin-top: 8px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding: 48px 5% 40px; }
+      .hero-visual { display: none; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .deals-strip { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .newsletter { padding: 32px 20px; }
+      .email-row { flex-direction: column; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── ANIM ── */
+    [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+    [data-fade].visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Gadget<span>Pulse</span></div>
+  <div class="nav-links">
+    <a href="#">Smartphones</a>
+    <a href="#">Laptops</a>
+    <a href="#">Audio</a>
+    <a href="#">Smart Home</a>
+    <a href="#">Deals</a>
+  </div>
+  <a href="#newsletter" class="nav-cta">Get Deals Free</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">India's #1 Gadget Review Blog</div>
+    <h1>Find the Best Tech<br/><em>Before You Buy It</em></h1>
+    <p>Honest reviews, side-by-side comparisons, and the best deals on smartphones, laptops, audio, and more — curated for India.</p>
+    <div class="hero-btns">
+      <a href="#reviews" class="btn-primary">Browse Reviews</a>
+      <a href="#deals" class="btn-ghost">Today's Deals →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="num">200+</div>
+        <div class="lbl">Products Reviewed</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">₹0</div>
+        <div class="lbl">Always Free to Read</div>
+      </div>
+    </div>
+    <div class="featured-tag">Editor's Pick</div>
+    <div class="stars">★★★★★</div>
+    <h3>OnePlus 13 Review — Best Value Flagship?</h3>
+    <p>Flagship features at ₹69,999. Does the camera finally match the competition?</p>
+    <div class="price-row">
+      <span class="price">₹69,999</span>
+      <a href="#" class="cta-small">Read Review</a>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="tick-item"><span class="dot"></span> Samsung Galaxy S25 Ultra – ₹1,29,999</span>
+    <span class="tick-item"><span class="dot"></span> Sony WH-1000XM6 – ₹29,990</span>
+    <span class="tick-item"><span class="dot"></span> MacBook Air M3 – ₹1,14,900</span>
+    <span class="tick-item"><span class="dot"></span> Redmi Note 14 Pro – ₹24,999</span>
+    <span class="tick-item"><span class="dot"></span> Apple AirPods 4 – ₹14,900</span>
+    <span class="tick-item"><span class="dot"></span> Asus ROG Zephyrus G14 – ₹1,19,990</span>
+    <span class="tick-item"><span class="dot"></span> Realme GT 6T – ₹29,999</span>
+    <span class="tick-item"><span class="dot"></span> Bose QuietComfort 45 – ₹24,990</span>
+    <!-- duplicate for seamless loop -->
+    <span class="tick-item"><span class="dot"></span> Samsung Galaxy S25 Ultra – ₹1,29,999</span>
+    <span class="tick-item"><span class="dot"></span> Sony WH-1000XM6 – ₹29,990</span>
+    <span class="tick-item"><span class="dot"></span> MacBook Air M3 – ₹1,14,900</span>
+    <span class="tick-item"><span class="dot"></span> Redmi Note 14 Pro – ₹24,999</span>
+    <span class="tick-item"><span class="dot"></span> Apple AirPods 4 – ₹14,900</span>
+    <span class="tick-item"><span class="dot"></span> Asus ROG Zephyrus G14 – ₹1,19,990</span>
+    <span class="tick-item"><span class="dot"></span> Realme GT 6T – ₹29,999</span>
+    <span class="tick-item"><span class="dot"></span> Bose QuietComfort 45 – ₹24,990</span>
+  </div>
+</div>
+
+<!-- FEATURED REVIEWS -->
+<div class="section" id="reviews">
+  <div class="section-head">
+    <h2 class="section-title">Featured <span>Reviews</span></h2>
+    <a href="#" class="see-all">All Reviews →</a>
+  </div>
+  <div class="featured-grid" data-fade>
+    <div class="card-featured">
+      <div class="card-img" style="background: linear-gradient(135deg,#0a0a1a,#0d1b2a);">📱</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag hot">🔥 Most Read</span>
+          <span class="tag">Smartphone</span>
+        </div>
+        <h3>Samsung Galaxy S25 Ultra — 6 Months Later: Still Worth ₹1.3 Lakh?</h3>
+        <p>We tested the S25 Ultra daily for 6 months. The camera is genuinely world-class. The S Pen is more useful than ever. But a few things still frustrate us.</p>
+        <div class="card-foot" style="margin-bottom:16px">
+          <span class="card-price">₹1,29,999</span>
+          <span class="rating card-meta">★★★★½ &nbsp; 4.5/5</span>
+        </div>
+        <a href="#" class="affi-btn">Buy on Amazon India 🛒</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card-featured" style="flex:1">
+        <div class="card-img" style="background: linear-gradient(135deg,#0a1a0a,#0d2010);aspect-ratio:2.8/1">💻</div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag new">✦ New</span><span class="tag">Laptop</span></div>
+          <h3>MacBook Air M3 vs Dell XPS 15: Which Should You Buy in India?</h3>
+          <p>Battery life, performance, and value — we compare them head to head.</p>
+          <a href="#" class="affi-btn" style="font-size:0.78rem;padding:8px 14px">Compare & Buy →</a>
+        </div>
+      </div>
+      <div class="card-featured" style="flex:1">
+        <div class="card-img" style="background: linear-gradient(135deg,#1a0a0a,#200d0d);aspect-ratio:2.8/1">🎧</div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag budget">💚 Best Budget</span><span class="tag">Audio</span></div>
+          <h3>5 Best Earphones Under ₹2,000 in India (2025)</h3>
+          <p>Great sound doesn't have to cost a fortune. Our top picks under ₹2K.</p>
+          <a href="#" class="affi-btn" style="font-size:0.78rem;padding:8px 14px">See All Picks →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATEST REVIEWS GRID -->
+  <div class="section-head" style="margin-top:48px">
+    <h2 class="section-title">Latest <span>Reviews</span></h2>
+  </div>
+  <div class="cards-grid" data-fade>
+
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#0a0f1a,#101828)">📷</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag new">✦ New</span><span class="tag">Camera</span></div>
+        <h3>Sony ZV-E10 II Review: Best Camera for Indian YouTubers?</h3>
+        <p>Excellent autofocus, great video, and a price that makes sense for creators starting out.</p>
+        <div class="card-foot">
+          <span class="card-price">₹64,990</span>
+          <span class="rating card-meta">★★★★ 4.2/5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#100a1a,#1a1028)">⌚</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag hot">🔥 Trending</span><span class="tag">Wearables</span></div>
+        <h3>Apple Watch Series 10 vs Samsung Galaxy Watch 7 — India Comparison</h3>
+        <p>Both are great. But one is a much better deal for Indian buyers. We break it down.</p>
+        <div class="card-foot">
+          <span class="card-price">From ₹41,900</span>
+          <span class="rating card-meta">★★★★½ 4.5/5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#0a1a0f,#0d2018)">🔋</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag budget">💚 Best Budget</span><span class="tag">Accessories</span></div>
+        <h3>Top 7 Power Banks Under ₹1,500 That Actually Last</h3>
+        <p>We tested 12 budget power banks. Only 7 were worth buying. Here's our shortlist.</p>
+        <div class="card-foot">
+          <span class="card-price">₹799 – ₹1,499</span>
+          <span class="rating card-meta">★★★★ 4.0/5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#1a100a,#281a0d)">🖥️</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag">Smart Home</span></div>
+        <h3>Best Smart TVs Under ₹30,000 in India (2025): Mi vs Sony vs LG</h3>
+        <p>We compared picture quality, smart features, and reliability across 6 models.</p>
+        <div class="card-foot">
+          <span class="card-price">₹18,999 – ₹29,999</span>
+          <span class="rating card-meta">★★★½ 3.8/5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#0f0a1a,#190f2a)">🎮</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag hot">🔥 Hot</span><span class="tag">Gaming</span></div>
+        <h3>Asus ROG Ally X Review: The Best Handheld Gaming PC for India?</h3>
+        <p>Windows gaming in your hands — but does it run cool enough in Indian summers?</p>
+        <div class="card-foot">
+          <span class="card-price">₹89,990</span>
+          <span class="rating card-meta">★★★★ 4.3/5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#0a1515,#0d2020)">🌐</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag new">✦ New</span><span class="tag">Networking</span></div>
+        <h3>Best Wi-Fi Routers for Indian Homes in 2025 — Speed vs Price</h3>
+        <p>Thick walls, power cuts, heavy streaming — we tested routers for real Indian homes.</p>
+        <div class="card-foot">
+          <span class="card-price">₹2,499 – ₹14,999</span>
+          <span class="rating card-meta">★★★★ 4.1/5</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DEALS SECTION -->
+<div class="section" id="deals" style="padding-top:0">
+  <div class="section-head">
+    <h2 class="section-title">Today's Best <span>Deals</span></h2>
+    <a href="#" class="see-all">All Deals →</a>
+  </div>
+  <div class="deals-strip" data-fade>
+    <div class="deal-item">
+      <div class="deal-icon">📱</div>
+      <div>
+        <h4>Redmi Note 14 Pro+</h4>
+        <p>50MP camera · 5G · 67W fast charge</p>
+        <span class="deal-price">₹26,999</span><span class="deal-old">₹32,999</span>
+      </div>
+    </div>
+    <div class="deal-item">
+      <div class="deal-icon">🎧</div>
+      <div>
+        <h4>Sony WF-1000XM5</h4>
+        <p>Best-in-class ANC earbuds</p>
+        <span class="deal-price">₹18,990</span><span class="deal-old">₹24,990</span>
+      </div>
+    </div>
+    <div class="deal-item">
+      <div class="deal-icon">💻</div>
+      <div>
+        <h4>Lenovo IdeaPad Slim 5</h4>
+        <p>AMD Ryzen 7 · 16GB RAM · 512GB SSD</p>
+        <span class="deal-price">₹54,990</span><span class="deal-old">₹64,990</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--muted);">
+    ⚠️ <strong style="color:var(--text)">Affiliate Disclosure:</strong> Some links above are affiliate links. If you buy something through them, we earn a small commission at no extra cost to you. This helps us keep reviews free and independent.
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter" id="newsletter" data-fade>
+  <h2>Get Deals Before Everyone Else</h2>
+  <p>Join 12,000+ readers who get weekly deals, honest reviews, and buying guides — completely free.</p>
+  <div class="email-row">
+    <input type="email" placeholder="your@email.com" />
+    <button>Subscribe Free</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Gadget<span style="color:var(--pulse)">Pulse</span></div>
+  <p>© 2025 GadgetPulse India. All Rights Reserved.</p>
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Affiliate Disclosure</a>
+  </div>
+  <p class="affiliate-note">
+    GadgetPulse India is a participant in the Amazon Associates Programme and other affiliate programmes. We earn commissions from qualifying purchases. Our editorial opinions are always independent.
+  </p>
+</footer>
+
+<script>
+  // Scroll fade-in animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
