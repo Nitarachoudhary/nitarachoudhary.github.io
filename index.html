@@ -61,6 +61,13 @@
     }
     .cat-btn:hover { color:var(--text); border-color:var(--border); }
     .cat-btn.active { color:var(--pulse); border-color:var(--pulse); background:var(--pulse-dim); }
+    .deal-cat-btn {
+      flex-shrink:0; background:none; border:1px solid transparent;
+      color:var(--muted); font-family:var(--font-head); font-size:0.78rem; font-weight:500;
+      padding:8px 14px; cursor:pointer; border-radius:6px; transition:all .2s; white-space:nowrap;
+    }
+    .deal-cat-btn:hover { color:var(--text); border-color:var(--border); }
+    .deal-cat-btn.active { color:var(--amber); border-color:var(--amber); background:#ffb83018; }
 
     /* ── HERO ── */
     .hero { padding:80px 5% 60px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; max-width:1200px; margin:0 auto; }
@@ -298,109 +305,35 @@
     <a href="https://www.amazon.in/?tag=gadgetpuls061-21" target="_blank" rel="noopener" class="see-all">All Deals on Amazon →</a>
   </div>
 
-  <!-- HOT BADGE ROW -->
-  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap" data-fade>
-    <span style="background:#ff4c2222;color:#ff7055;border:1px solid #ff4c2244;font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:20px">🔥 Most Searched</span>
-    <span style="background:var(--pulse-dim);color:var(--pulse);border:1px solid #00d4ff33;font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:20px">✦ June 2026 Picks</span>
-    <span style="background:#00c57a22;color:#00c57a;border:1px solid #00c57a44;font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:20px">💚 Best Value</span>
+  <!-- DEALS CATEGORY FILTER -->
+  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;overflow-x:auto;scrollbar-width:none" data-fade>
+    <button class="deal-cat-btn active" data-deal-cat="All">All Deals</button>
+    <button class="deal-cat-btn" data-deal-cat="Apple">🍎 Apple</button>
+    <button class="deal-cat-btn" data-deal-cat="Samsung">📱 Samsung</button>
+    <button class="deal-cat-btn" data-deal-cat="Phones">📱 Phones</button>
+    <button class="deal-cat-btn" data-deal-cat="Audio">🎧 Audio</button>
+    <button class="deal-cat-btn" data-deal-cat="Laptops">💻 Laptops</button>
+    <button class="deal-cat-btn" data-deal-cat="Wearables">⌚ Wearables</button>
+    <button class="deal-cat-btn" data-deal-cat="Accessories">🔌 Accessories</button>
   </div>
 
-  <div class="deals-strip" data-fade>
-
-    <!-- ROW 1 — Smartphones -->
-    <a class="deal-item" href="https://www.amazon.in/s?k=OnePlus+13&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">📱</div>
-      <div>
-        <h4>OnePlus 13</h4>
-        <p class="deal-desc">Snapdragon 8 Elite · 50MP Hasselblad · 100W</p>
-        <span class="deal-price">₹69,999</span><span class="deal-old">₹79,999</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <a class="deal-item" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25+FE&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">📱</div>
-      <div>
-        <h4>Samsung Galaxy S25 FE</h4>
-        <p class="deal-desc">AI features · 200MP · 7 years updates</p>
-        <span class="deal-price">₹49,999</span><span class="deal-old">₹59,999</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <a class="deal-item" href="https://www.amazon.in/s?k=Redmi+Note+14+Pro+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">📱</div>
-      <div>
-        <h4>Redmi Note 14 Pro+</h4>
-        <p class="deal-desc">200MP camera · 5G · 90W HyperCharge</p>
-        <span class="deal-price">₹26,999</span><span class="deal-old">₹32,999</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <!-- ROW 2 — Audio & Wearables -->
-    <a class="deal-item" href="https://www.amazon.in/s?k=OnePlus+Buds+4&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">🎧</div>
-      <div>
-        <h4>OnePlus Buds 4</h4>
-        <p class="deal-desc">#1 most searched earbuds India 2026</p>
-        <span class="deal-price">₹5,999</span><span class="deal-old">₹7,999</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <a class="deal-item" href="https://www.amazon.in/s?k=Samsung+Galaxy+Buds+3+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">🎧</div>
-      <div>
-        <h4>Samsung Galaxy Buds 3 Pro</h4>
-        <p class="deal-desc">Blade design · ANC · 360° audio</p>
-        <span class="deal-price">₹17,999</span><span class="deal-old">₹22,999</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <a class="deal-item" href="https://www.amazon.in/s?k=Apple+Watch+Series+10&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">⌚</div>
-      <div>
-        <h4>Apple Watch Series 10</h4>
-        <p class="deal-desc">Thinnest ever · Sleep apnea detection</p>
-        <span class="deal-price">₹41,900</span><span class="deal-old">₹46,900</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <!-- ROW 3 — Laptops, Smart Home & Accessories -->
-    <a class="deal-item" href="https://www.amazon.in/s?k=MacBook+Air+M3&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">💻</div>
-      <div>
-        <h4>MacBook Air M3</h4>
-        <p class="deal-desc">18hr battery · 8GB RAM · Most searched laptop</p>
-        <span class="deal-price">₹1,09,900</span><span class="deal-old">₹1,19,900</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <a class="deal-item" href="https://www.amazon.in/s?k=boAt+Airdopes+141+ANC&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">🎵</div>
-      <div>
-        <h4>boAt Airdopes 141 ANC</h4>
-        <p class="deal-desc">Best budget ANC · 42hr total playtime</p>
-        <span class="deal-price">₹1,299</span><span class="deal-old">₹2,990</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
-    <a class="deal-item" href="https://www.amazon.in/s?k=Realme+Watch+S5&tag=gadgetpuls061-21" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">⌚</div>
-      <div>
-        <h4>Realme Watch S5</h4>
-        <p class="deal-desc">AMOLED · GPS · 20 day battery · Calling</p>
-        <span class="deal-price">₹7,999</span><span class="deal-old">₹9,999</span>
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>
-
+  <!-- DEALS GRID — loaded from Google Sheet -->
+  <div class="deals-strip" id="deals-grid" data-fade>
+    <!-- skeleton loaders -->
+    <div class="deal-item" style="pointer-events:none">
+      <div class="deal-icon" style="background:var(--border)"></div>
+      <div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div>
+    </div>
+    <div class="deal-item" style="pointer-events:none">
+      <div class="deal-icon" style="background:var(--border)"></div>
+      <div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div>
+    </div>
+    <div class="deal-item" style="pointer-events:none">
+      <div class="deal-icon" style="background:var(--border)"></div>
+      <div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div>
+    </div>
   </div>
+
   <div style="margin-top:14px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:0.74rem;color:var(--muted);">
     ⚠️ <strong style="color:var(--text)">Affiliate Disclosure:</strong> Links above are Amazon affiliate links. We earn a small commission if you buy — at no extra cost to you. This keeps our reviews free.
   </div>
@@ -435,8 +368,16 @@
 <script>
 // ════════════════════════════════════════════════════════
 //  CONFIGURATION
+//  SHEET_CSV_URL  → Tab 1: your blog articles
+//  DEALS_CSV_URL  → Tab 2: your deals (add gid of Deals tab)
+//
+//  HOW TO GET DEALS_CSV_URL:
+//  1. In your Google Sheet, create a new tab called "Deals"
+//  2. File → Share → Publish to web → choose "Deals" tab → CSV
+//  3. Copy the URL and paste below replacing DEALS_CSV_URL value
 // ════════════════════════════════════════════════════════
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=1980989218&single=true&output=csv';
+const DEALS_CSV_URL  = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=481003703&single=true&output=csv';
 const AFFILIATE_TAG = 'gadgetpuls061-21';
 
 const GRADIENTS = [
@@ -453,6 +394,88 @@ const GRADIENTS = [
 // ── GLOBAL STATE ──────────────────────────────────────────
 let allBlogs = [];
 let activeCategory = 'All';
+let allDeals = [];
+let activeDealCat = 'All';
+
+// ── RENDER DEALS ──────────────────────────────────────────
+function renderDeals(deals) {
+  const grid = document.getElementById('deals-grid');
+  if (!deals.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">No deals in this category yet — add rows to your Deals sheet tab!</div>';
+    return;
+  }
+  grid.innerHTML = deals.map(d => {
+    const old = d.old_price ? `<span class="deal-old">${d.old_price}</span>` : '';
+    const badge = d.badge ? `<span style="background:#ff4c2218;color:#ff7055;font-size:0.65rem;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:6px">${d.badge}</span>` : '';
+    return `<a class="deal-item" href="${d.amazon_url || '#'}" target="_blank" rel="noopener noreferrer">
+      <div class="deal-icon">${d.emoji || '🛒'}</div>
+      <div style="flex:1;min-width:0">
+        <h4 style="display:flex;align-items:center;flex-wrap:wrap;gap:4px">${d.name}${badge}</h4>
+        <p class="deal-desc">${d.description || ''}</p>
+        <span class="deal-price">${d.price}</span>${old}
+      </div>
+      <span class="deal-arrow">→</span>
+    </a>`;
+  }).join('');
+}
+
+// ── FILTER DEALS ──────────────────────────────────────────
+function filterDeals(cat) {
+  activeDealCat = cat;
+  document.querySelectorAll('.deal-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.dealCat === cat));
+  const filtered = cat === 'All' ? allDeals : allDeals.filter(d => d.category && d.category.toLowerCase() === cat.toLowerCase());
+  renderDeals(filtered);
+}
+
+// ── LOAD DEALS FROM SHEET ─────────────────────────────────
+async function loadDeals() {
+  try {
+    const res = await fetch(DEALS_CSV_URL);
+    if (!res.ok) throw new Error('deals fetch failed');
+    const text = await res.text();
+    const all = parseCSV(text);
+    allDeals = all.filter(d => d.active === 'TRUE' || d.active === 'true' || d.active === '1');
+    renderDeals(allDeals);
+  } catch (err) {
+    // Fallback to hardcoded deals if sheet not set up yet
+    console.warn('Deals sheet not configured yet — showing default deals');
+    renderDefaultDeals();
+  }
+}
+
+// ── DEFAULT DEALS (shown until Google Sheet Deals tab is set up) ──
+function renderDefaultDeals() {
+  const TAG = 'gadgetpuls061-21';
+  const defaults = [
+    // Apple Products
+    { name:'iPhone 16 Pro', emoji:'📱', description:'A18 Pro · 48MP · 4K120fps ProRes · Titanium', price:'₹1,19,900', old_price:'₹1,34,900', amazon_url:`https://www.amazon.in/s?k=iPhone+16+Pro&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'iPhone 16', emoji:'📱', description:'A18 chip · 48MP · Apple Intelligence · USB-C', price:'₹79,900', old_price:'₹89,900', amazon_url:`https://www.amazon.in/s?k=iPhone+16&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple AirPods 4', emoji:'🎧', description:'H2 chip · ANC · Spatial Audio · 30hrs case', price:'₹14,900', old_price:'₹19,900', amazon_url:`https://www.amazon.in/s?k=AirPods+4&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple AirPods Pro 2', emoji:'🎧', description:'Best-in-class ANC · Hearing Health · MagSafe', price:'₹24,900', old_price:'₹29,900', amazon_url:`https://www.amazon.in/s?k=AirPods+Pro+2&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple Watch Series 10', emoji:'⌚', description:'Thinnest ever · Sleep apnea · Always-on · GPS', price:'₹41,900', old_price:'₹46,900', amazon_url:`https://www.amazon.in/s?k=Apple+Watch+Series+10&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'MacBook Air M3 13"', emoji:'💻', description:'M3 chip · 18hr battery · 8GB RAM · 256GB SSD', price:'₹1,09,900', old_price:'₹1,19,900', amazon_url:`https://www.amazon.in/s?k=MacBook+Air+M3&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'MacBook Pro M3 14"', emoji:'💻', description:'M3 Pro · 11hr battery · 120Hz Liquid Retina XDR', price:'₹1,69,900', old_price:'₹1,99,900', amazon_url:`https://www.amazon.in/s?k=MacBook+Pro+M3+14+inch&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'iPad Air M2 11"', emoji:'📱', description:'M2 chip · 11" Liquid Retina · Apple Pencil Pro ready', price:'₹59,900', old_price:'₹69,900', amazon_url:`https://www.amazon.in/s?k=iPad+Air+M2+11+inch&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'iPad Pro M4 11"', emoji:'📱', description:'M4 chip · Ultra Retina XDR · 5G · Thinnest iPad ever', price:'₹99,900', old_price:'₹1,19,900', amazon_url:`https://www.amazon.in/s?k=iPad+Pro+M4+11+inch&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple Pencil Pro', emoji:'✏️', description:'Squeeze · Find My · Hover · Barrel Roll · works iPad Pro/Air', price:'₹11,900', old_price:'₹14,900', amazon_url:`https://www.amazon.in/s?k=Apple+Pencil+Pro&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'MagSafe Charger 25W', emoji:'🔌', description:'25W fast MagSafe charging for iPhone 12 and above', price:'₹4,900', old_price:'₹5,900', amazon_url:`https://www.amazon.in/s?k=Apple+MagSafe+Charger+25W&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple HomePod mini', emoji:'🔊', description:'360° audio · Siri · smart home hub · Thread support', price:'₹9,900', old_price:'₹11,900', amazon_url:`https://www.amazon.in/s?k=Apple+HomePod+mini&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    // Samsung
+    { name:'Samsung Galaxy S25 Ultra', emoji:'📱', description:'200MP · Snapdragon 8 Elite · S Pen · 7 years updates', price:'₹1,24,999', old_price:'₹1,34,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+S25+Ultra&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
+    { name:'Samsung Galaxy S25', emoji:'📱', description:'50MP · Snapdragon 8 Elite · compact · AI features', price:'₹74,999', old_price:'₹84,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+S25&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
+    { name:'Samsung Galaxy Buds 3 Pro', emoji:'🎧', description:'Blade design · ANC · 360° audio · Galaxy AI', price:'₹17,999', old_price:'₹22,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+Buds+3+Pro&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
+    // Other top deals
+    { name:'OnePlus 13', emoji:'📱', description:'Snapdragon 8 Elite · Hasselblad 50MP · 100W charging', price:'₹69,999', old_price:'₹79,999', amazon_url:`https://www.amazon.in/s?k=OnePlus+13&tag=${TAG}`, badge:'🔥 Hot', category:'Phones' },
+    { name:'Redmi Note 14 Pro+', emoji:'📱', description:'200MP · 5G · 90W HyperCharge · IP68', price:'₹26,999', old_price:'₹32,999', amazon_url:`https://www.amazon.in/s?k=Redmi+Note+14+Pro+Plus&tag=${TAG}`, badge:'💚 Value', category:'Phones' },
+    { name:'Sony WH-1000XM5', emoji:'🎧', description:'Best ANC · 30hrs · LDAC · multipoint connect', price:'₹26,990', old_price:'₹34,990', amazon_url:`https://www.amazon.in/s?k=Sony+WH-1000XM5&tag=${TAG}`, badge:'🔥 Hot', category:'Audio' },
+    { name:'boAt Airdopes 141 ANC', emoji:'🎧', description:'ANC · 42hrs · IPX4 · best budget earbuds', price:'₹1,299', old_price:'₹2,990', amazon_url:`https://www.amazon.in/s?k=boAt+Airdopes+141+ANC&tag=${TAG}`, badge:'💚 Budget', category:'Audio' },
+    { name:'Amazfit Bip 5 Unity', emoji:'⌚', description:'AMOLED · GPS · Alexa · 10 day battery', price:'₹4,499', old_price:'₹5,499', amazon_url:`https://www.amazon.in/s?k=Amazfit+Bip+5+Unity&tag=${TAG}`, badge:'💚 Value', category:'Wearables' },
+    { name:'Ambrane 65W GaN Charger', emoji:'⚡', description:'65W · 3 ports · USB-C + USB-A · foldable pins', price:'₹1,299', old_price:'₹1,999', amazon_url:`https://www.amazon.in/s?k=Ambrane+65W+GaN+charger&tag=${TAG}`, badge:'💚 Budget', category:'Accessories' },
+    { name:'Samsung T7 Shield SSD 1TB', emoji:'💾', description:'1050MB/s · IP65 · drop-proof · USB-C · 1TB', price:'₹8,999', old_price:'₹12,999', amazon_url:`https://www.amazon.in/s?k=Samsung+T7+Shield+1TB&tag=${TAG}`, badge:'🔥 Hot', category:'Accessories' },
+  ];
+  allDeals = defaults;
+  renderDeals(defaults);
+}
 
 // ── TOAST ─────────────────────────────────────────────────
 function showToast(msg, duration = 2800) {
@@ -654,8 +677,14 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('[data-fade]').forEach(el => fadeObserver.observe(el));
 
+// ── DEAL CATEGORY FILTER BUTTONS ─────────────────────────
+document.querySelectorAll('.deal-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => filterDeals(btn.dataset.dealCat));
+});
+
 // ── BOOT ─────────────────────────────────────────────────
 loadBlogs();
+loadDeals();
 </script>
 </body>
 </html>
