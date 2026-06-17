@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – GadgetPulse India</title>
+  <meta name="description" content="Learn about GadgetPulse India – your trusted source for tech reviews, deals, and gadget recommendations for Indian consumers." />
+  <link rel="canonical" href="https://gadgetpulse.co.in/about.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --cyan: #00d4ff;
+      --cyan-dim: rgba(0, 212, 255, 0.15);
+      --cyan-glow: rgba(0, 212, 255, 0.08);
+      --text: #e8e8f0;
+      --text-muted: #8888aa;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .page-header .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Intro block */
+    .intro-block {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .intro-block .emoji { font-size: 3rem; margin-bottom: 16px; display: block; }
+    .intro-block h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .intro-block p { color: var(--text-muted); font-size: 0.97rem; max-width: 580px; margin: 0 auto; }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+    .card .icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+    /* Section block */
+    .section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .section:hover { border-color: rgba(0,212,255,0.2); }
+    .section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+    .section p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
+    .section ul li { margin-bottom: 8px; }
+    .section a { color: var(--cyan); text-decoration: none; }
+    .section a:hover { text-decoration: underline; }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .stat-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cyan);
+      display: block;
+    }
+    .stat-box .label { color: var(--text-muted); font-size: 0.82rem; margin-top: 4px; }
+
+    /* CTA */
+    .cta-block {
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03));
+      border: 1px solid rgba(0,212,255,0.25);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-block h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .cta-block p { color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--cyan);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .intro-block, .section, .cta-block { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Gadget<span>Pulse</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="badge">About Us</div>
+    <h1>India's Tech Pulse 🇮🇳</h1>
+    <p>We cut through the noise so you can buy smarter — honest reviews, real deals, built for Indian consumers.</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- Intro -->
+    <div class="intro-block">
+      <span class="emoji">⚡</span>
+      <h2>We're GadgetPulse India</h2>
+      <p>A dedicated tech media platform helping Indian consumers make confident buying decisions. From flagship smartphones to budget earbuds — we review, compare, and find the best deals so you don't have to spend hours scrolling.</p>
+    </div>
+
+    <!-- What we cover -->
+    <div class="cards-grid">
+      <div class="card">
+        <span class="icon">📱</span>
+        <h3>Smartphones</h3>
+        <p>In-depth reviews and buying guides for every budget — from ₹10K to flagship.</p>
+      </div>
+      <div class="card">
+        <span class="icon">💻</span>
+        <h3>Laptops & PCs</h3>
+        <p>Performance benchmarks, display tests, and value-for-money picks for students and professionals.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🎧</span>
+        <h3>Audio & Earbuds</h3>
+        <p>TWS earbuds, headphones, and soundbars — tested for Indian music tastes and daily commutes.</p>
+      </div>
+      <div class="card">
+        <span class="icon">📺</span>
+        <h3>Smart TVs</h3>
+        <p>The best screens for cricket, OTT, and gaming — recommended for every room size.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔥</span>
+        <h3>Deals & Offers</h3>
+        <p>Real-time Amazon deals, price drops, and sale alerts — so you never miss a bargain.</p>
+      </div>
+      <div class="card">
+        <span class="icon">⚙️</span>
+        <h3>Accessories</h3>
+        <p>Chargers, cables, smart home devices, and everything in between.</p>
+      </div>
+    </div>
+
+    <!-- Mission -->
+    <div class="section">
+      <h2>Our Mission</h2>
+      <p>India's tech market is massive and fast-moving. New phones drop every week, prices change overnight, and spec sheets can be overwhelming. Our job is simple: <strong style="color: var(--text);">make tech buying easier for everyday Indians.</strong></p>
+      <p>We believe honest, jargon-free content — written by people who actually use these devices — is the best way to help you spend your money wisely. Whether you're a student buying your first laptop or a professional upgrading to the latest flagship, GadgetPulse India has your back.</p>
+    </div>
+
+    <!-- How we work -->
+    <div class="section">
+      <h2>How We Work</h2>
+      <p>Our editorial process is straightforward:</p>
+      <ul>
+        <li>We research products thoroughly using official specs, expert reviews, and user feedback.</li>
+        <li>We compare prices across Amazon India to find the best value at any given time.</li>
+        <li>We write in plain language — no unnecessary tech jargon.</li>
+        <li>We update our content regularly to reflect current prices and availability.</li>
+        <li>We <strong style="color: var(--text);">always disclose</strong> when a link is an affiliate link.</li>
+      </ul>
+    </div>
+
+    <!-- Affiliate transparency -->
+    <div class="section">
+      <h2>Affiliate Transparency</h2>
+      <p>GadgetPulse India participates in the <strong style="color: var(--text);">Amazon Associates Program</strong>. When you purchase through our affiliate links, we earn a small commission — at no extra cost to you.</p>
+      <p>This commission helps us keep the site running and the content free. However, it <strong style="color: var(--text);">never influences our recommendations</strong>. We recommend products we genuinely believe are worth your money, regardless of commission rates.</p>
+      <p>Our Amazon affiliate tag: <strong style="color: var(--cyan);">gadgetpuls061-21</strong></p>
+    </div>
+
+    <!-- Follow us -->
+    <div class="section">
+      <h2>Follow Us on Instagram</h2>
+      <p>We also create short video content on Instagram — quick product highlights, deal alerts, and tech tips, all in a fun Hinglish style that's easy to follow.</p>
+      <p>Follow us at <a href="https://instagram.com/gadget_pulse_india" target="_blank" rel="noopener"><strong>@gadget_pulse_india</strong></a> for daily gadget content.</p>
+    </div>
+
+    <div class="section" id="contact-mini">
+      <h2>Contact Us</h2>
+      <p>Have a question or suggestion? Fill in the form below or email us at <a href="mailto:gadgetpulse.co.in@gmail.com">gadgetpulse.co.in@gmail.com</a></p>
+
+      <div style="margin-top:20px;">
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Your Name</label>
+            <input type="text" id="mc-name" placeholder="Rahul Sharma" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Inter,sans-serif;font-size:0.9rem;padding:12px 16px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"/>
+          </div>
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Email Address</label>
+            <input type="email" id="mc-email" placeholder="you@example.com" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Inter,sans-serif;font-size:0.9rem;padding:12px 16px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"/>
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Message</label>
+          <textarea id="mc-message" placeholder="Tell us what's on your mind…" rows="4" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Inter,sans-serif;font-size:0.9rem;padding:12px 16px;outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
+        <button id="mc-btn" onclick="miniContactSubmit(this)" style="background:var(--cyan);color:#000;border:none;border-radius:8px;font-family:Inter,sans-serif;font-size:0.9rem;font-weight:700;padding:12px 28px;cursor:pointer;transition:opacity 0.2s;">Send Message →</button>
+        <div id="mc-success" style="display:none;margin-top:14px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.3);border-radius:8px;padding:14px;color:var(--cyan);font-size:0.88rem;text-align:center;">✅ Message sent! We'll get back to you within 24–48 hours.</div>
+        <div id="mc-error" style="display:none;margin-top:14px;background:rgba(255,80,80,0.08);border:1px solid rgba(255,80,80,0.3);border-radius:8px;padding:14px;color:#ff6b6b;font-size:0.88rem;text-align:center;">❌ Something went wrong. Please email us directly at gadgetpulse.co.in@gmail.com</div>
+      </div>
+    </div>
+
+  <script>
+    async function miniContactSubmit(btn) {
+      const name = document.getElementById('mc-name').value.trim();
+      const email = document.getElementById('mc-email').value.trim();
+      const message = document.getElementById('mc-message').value.trim();
+      document.getElementById('mc-success').style.display = 'none';
+      document.getElementById('mc-error').style.display = 'none';
+      if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) { alert('Please enter a valid email address.'); return; }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://formspree.io/f/mojzzyoa', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+        if (res.ok) {
+          document.getElementById('mc-success').style.display = 'block';
+          document.getElementById('mc-name').value = '';
+          document.getElementById('mc-email').value = '';
+          document.getElementById('mc-message').value = '';
+        } else { document.getElementById('mc-error').style.display = 'block'; }
+      } catch(e) { document.getElementById('mc-error').style.display = 'block'; }
+      btn.disabled = false; btn.textContent = 'Send Message →';
+    }
+  </script>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GadgetPulse India</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 GadgetPulse India. As an Amazon Associate, we earn from qualifying purchases. Affiliate tag: gadgetpuls061-21</p>
+  </footer>
+
+</body>
+</html>

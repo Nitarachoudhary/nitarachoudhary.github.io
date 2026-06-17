@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disclaimer – GadgetPulse India</title>
+  <meta name="description" content="Disclaimer for GadgetPulse India – affiliate disclosure, accuracy statement, and earnings disclaimer." />
+  <link rel="canonical" href="https://gadgetpulse.co.in/disclaimer.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --cyan: #00d4ff;
+      --cyan-dim: rgba(0, 212, 255, 0.15);
+      --amber: #ffb830;
+      --amber-dim: rgba(255, 184, 48, 0.12);
+      --text: #e8e8f0;
+      --text-muted: #8888aa;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--amber-dim);
+      color: var(--amber);
+      border: 1px solid rgba(255,184,48,0.3);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .page-header p { color: var(--text-muted); font-size: 1rem; max-width: 500px; margin: 0 auto; }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Affiliate highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,184,48,0.08), rgba(255,184,48,0.03));
+      border: 1px solid rgba(255,184,48,0.3);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .highlight-box .hb-icon { font-size: 2rem; flex-shrink: 0; }
+    .highlight-box h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .highlight-box p { color: var(--text-muted); font-size: 0.9rem; }
+    .highlight-box p strong { color: var(--text); }
+
+    .last-updated {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+      padding: 12px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s;
+    }
+    .section:hover { border-color: rgba(0,212,255,0.15); }
+    .section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+    .section p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
+    .section ul li { margin-bottom: 8px; }
+    .section a { color: var(--cyan); text-decoration: none; }
+    .section a:hover { text-decoration: underline; }
+
+    .tag-pill {
+      display: inline-block;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .section { padding: 24px 20px; }
+      .highlight-box { flex-direction: column; gap: 12px; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Gadget<span>Pulse</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="badge">⚠️ Disclaimer</div>
+    <h1>Disclaimer</h1>
+    <p>Important disclosures about affiliate relationships, content accuracy, and earnings on GadgetPulse India.</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <div class="last-updated">📅 Last Updated: June 2025</div>
+
+    <!-- Affiliate highlight -->
+    <div class="highlight-box">
+      <span class="hb-icon">🔗</span>
+      <div>
+        <h2>Affiliate Disclosure (Required by FTC &amp; Amazon)</h2>
+        <p>GadgetPulse India is a participant in the <strong>Amazon Associates Program</strong>. We earn commissions from qualifying purchases made through our affiliate links, at <strong>no extra cost to you</strong>. Our Amazon affiliate tag is <strong>gadgetpuls061-21</strong>.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Amazon Affiliate Disclaimer</h2>
+      <p>GadgetPulse India (<strong>gadgetpulse.co.in</strong>) participates in the <strong>Amazon Associates Program</strong>, an affiliate advertising program operated by Amazon.in.</p>
+      <p>This means that when you click on product links on our site and subsequently make a purchase on Amazon.in, we may earn a small advertising commission. The price you pay is <strong>exactly the same</strong> as it would be without our link — Amazon bears the cost of our commission, not you.</p>
+      <p>Our affiliate tag: <span class="tag-pill">gadgetpuls061-21</span></p>
+      <p>This affiliation <strong>does not influence</strong> our editorial opinions, product rankings, or review scores. We aim to recommend products that offer genuine value to Indian consumers, regardless of commission rates.</p>
+    </div>
+
+    <div class="section">
+      <h2>Content Accuracy Disclaimer</h2>
+      <p>We make every effort to ensure that the information published on GadgetPulse India is accurate, up-to-date, and helpful at the time of writing. However:</p>
+      <ul>
+        <li>Product prices on Amazon change frequently. Prices shown on our pages may not reflect current Amazon pricing.</li>
+        <li>Product specifications, availability, and features may change after we publish a review or buying guide.</li>
+        <li>We rely on publicly available information, manufacturer data, and our own testing where applicable.</li>
+        <li>We do not guarantee the accuracy, completeness, or timeliness of any information on this site.</li>
+      </ul>
+      <p>Always verify current prices, specs, and availability directly on Amazon.in before making a purchase decision.</p>
+    </div>
+
+    <div class="section">
+      <h2>Editorial Independence</h2>
+      <p>Our reviews and recommendations are based on research, product testing, and genuine assessment of value for Indian consumers. We are not paid by brands or manufacturers to feature or positively review their products.</p>
+      <p>If we ever receive a product for review purposes (gifted or loaned), we will disclose this clearly within the relevant article. Our obligation is to our readers — not to brands.</p>
+      <p>The fact that a product carries a higher affiliate commission does <strong>not</strong> mean it will be ranked higher or recommended over better-value alternatives.</p>
+    </div>
+
+    <div class="section">
+      <h2>Earnings Disclaimer</h2>
+      <p>GadgetPulse India earns revenue through the Amazon Associates affiliate program and, where applicable, display advertising (Google AdSense).</p>
+      <p>We do not guarantee any specific earnings, results, or financial outcomes to readers based on products we recommend. Purchasing decisions are entirely at your own discretion and risk.</p>
+      <p>Affiliate commissions help us cover costs associated with running the website, creating content, and maintaining our social media presence. Without this revenue model, we would not be able to provide free content to our readers.</p>
+    </div>
+
+    <div class="section">
+      <h2>Third-Party Links Disclaimer</h2>
+      <p>Our website may contain links to third-party websites other than Amazon (such as manufacturer websites, news articles, or reference sources). These links are provided for informational purposes only.</p>
+      <p>GadgetPulse India has no control over the content, privacy practices, or accuracy of third-party websites, and we are not responsible for any information, products, or services on those sites. Visiting third-party links is entirely at your own risk.</p>
+    </div>
+
+    <div class="section">
+      <h2>No Professional Advice</h2>
+      <p>The content on GadgetPulse India is intended for general informational and educational purposes only. It does not constitute professional advice of any kind — financial, legal, technical, or otherwise.</p>
+      <p>Product recommendations are based on general consumer use cases and may not be appropriate for all individuals or specific professional requirements. Always assess your own needs before making a purchase.</p>
+    </div>
+
+    <div class="section">
+      <h2>Limitation of Liability</h2>
+      <p>GadgetPulse India and its owner(s) shall not be held liable for any losses, damages, or dissatisfaction arising from:</p>
+      <ul>
+        <li>Purchasing a product based on our recommendation</li>
+        <li>Inaccurate or outdated information on our site</li>
+        <li>Issues arising from products purchased through Amazon or any third-party seller</li>
+        <li>Technical issues, downtime, or errors on gadgetpulse.co.in</li>
+      </ul>
+      <p>Your use of this website and reliance on its content is solely at your own risk.</p>
+    </div>
+
+    <div class="section" id="contact-mini">
+      <h2>Contact Us</h2>
+      <p>Have a question or suggestion? Fill in the form below or email us at <a href="mailto:gadgetpulse.co.in@gmail.com">gadgetpulse.co.in@gmail.com</a></p>
+
+      <div style="margin-top:20px;">
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Your Name</label>
+            <input type="text" id="mc-name" placeholder="Rahul Sharma" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Inter,sans-serif;font-size:0.9rem;padding:12px 16px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"/>
+          </div>
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Email Address</label>
+            <input type="email" id="mc-email" placeholder="you@example.com" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Inter,sans-serif;font-size:0.9rem;padding:12px 16px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"/>
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Message</label>
+          <textarea id="mc-message" placeholder="Tell us what's on your mind…" rows="4" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:Inter,sans-serif;font-size:0.9rem;padding:12px 16px;outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
+        <button id="mc-btn" onclick="miniContactSubmit(this)" style="background:var(--cyan);color:#000;border:none;border-radius:8px;font-family:Inter,sans-serif;font-size:0.9rem;font-weight:700;padding:12px 28px;cursor:pointer;transition:opacity 0.2s;">Send Message →</button>
+        <div id="mc-success" style="display:none;margin-top:14px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.3);border-radius:8px;padding:14px;color:var(--cyan);font-size:0.88rem;text-align:center;">✅ Message sent! We'll get back to you within 24–48 hours.</div>
+        <div id="mc-error" style="display:none;margin-top:14px;background:rgba(255,80,80,0.08);border:1px solid rgba(255,80,80,0.3);border-radius:8px;padding:14px;color:#ff6b6b;font-size:0.88rem;text-align:center;">❌ Something went wrong. Please email us directly at gadgetpulse.co.in@gmail.com</div>
+      </div>
+    </div>
+
+  <script>
+    async function miniContactSubmit(btn) {
+      const name = document.getElementById('mc-name').value.trim();
+      const email = document.getElementById('mc-email').value.trim();
+      const message = document.getElementById('mc-message').value.trim();
+      document.getElementById('mc-success').style.display = 'none';
+      document.getElementById('mc-error').style.display = 'none';
+      if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) { alert('Please enter a valid email address.'); return; }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://formspree.io/f/mojzzyoa', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+        if (res.ok) {
+          document.getElementById('mc-success').style.display = 'block';
+          document.getElementById('mc-name').value = '';
+          document.getElementById('mc-email').value = '';
+          document.getElementById('mc-message').value = '';
+        } else { document.getElementById('mc-error').style.display = 'block'; }
+      } catch(e) { document.getElementById('mc-error').style.display = 'block'; }
+      btn.disabled = false; btn.textContent = 'Send Message →';
+    }
+  </script>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GadgetPulse India</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 GadgetPulse India. As an Amazon Associate, we earn from qualifying purchases. Affiliate tag: gadgetpuls061-21</p>
+  </footer>
+
+</body>
+</html>

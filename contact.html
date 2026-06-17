@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – GadgetPulse India</title>
+  <meta name="description" content="Get in touch with GadgetPulse India – send us your questions, feedback, or collaboration requests." />
+  <link rel="canonical" href="https://gadgetpulse.co.in/contact.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --cyan: #00d4ff;
+      --cyan-dim: rgba(0, 212, 255, 0.15);
+      --text: #e8e8f0;
+      --text-muted: #8888aa;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .page-header p { color: var(--text-muted); font-size: 1rem; max-width: 500px; margin: 0 auto; }
+
+    /* ── LAYOUT ── */
+    .content-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+    .form-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-card .subtitle { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 28px; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { cursor: pointer; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--cyan);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .form-note {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* Success message */
+    .success-msg {
+      display: none;
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 8px;
+      padding: 16px;
+      color: var(--cyan);
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .error-msg {
+      display: none;
+      background: rgba(255,80,80,0.08);
+      border: 1px solid rgba(255,80,80,0.3);
+      border-radius: 8px;
+      padding: 16px;
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .info-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .info-card:hover { border-color: rgba(0,212,255,0.2); }
+    .info-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .contact-item .ci-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .contact-item .ci-content { }
+    .contact-item .ci-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 2px; }
+    .contact-item .ci-value { font-size: 0.88rem; color: var(--text); }
+    .contact-item .ci-value a { color: var(--cyan); text-decoration: none; }
+    .contact-item .ci-value a:hover { text-decoration: underline; }
+
+    .faq-item { margin-bottom: 16px; }
+    .faq-item:last-child { margin-bottom: 0; }
+    .faq-item .q {
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .faq-item .a { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+
+    @media (max-width: 720px) {
+      .content-wrap { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Gadget<span>Pulse</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="badge">Contact</div>
+    <h1>Get in Touch 👋</h1>
+    <p>Questions, feedback, collaborations — we'd love to hear from you. We usually reply within 24–48 hours.</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- CONTACT FORM -->
+    <div class="form-card">
+      <h2>Send Us a Message</h2>
+      <p class="subtitle">Fill in the form below and we'll get back to you as soon as possible.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Rahul Sharma" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="rahul@example.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject">
+          <option value="" disabled selected>Select a topic…</option>
+          <option value="product">Product Recommendation Request</option>
+          <option value="review">Review Feedback</option>
+          <option value="deal">Deal / Price Alert</option>
+          <option value="collab">Brand / Collaboration Inquiry</option>
+          <option value="bug">Report an Issue</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Send Message →</button>
+
+      <div class="success-msg" id="successMsg">
+        ✅ Message sent! We'll get back to you within 24–48 hours.
+      </div>
+
+      <div class="error-msg" id="errorMsg">
+        ❌ Something went wrong. Please try again or email us directly.
+      </div>
+
+      <p class="form-note">We respect your privacy. Your info is never shared with third parties.</p>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="info-card">
+        <h3>Direct Contact</h3>
+        <div class="contact-item">
+          <span class="ci-icon">📧</span>
+          <div class="ci-content">
+            <div class="ci-label">Email</div>
+            <div class="ci-value"><a href="mailto:gadgetpulse.co.in@gmail.com">gadgetpulse.co.in@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">📱</span>
+          <div class="ci-content">
+            <div class="ci-label">Instagram</div>
+            <div class="ci-value"><a href="https://instagram.com/gadget_pulse_india" target="_blank" rel="noopener">@gadget_pulse_india</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">🌐</span>
+          <div class="ci-content">
+            <div class="ci-label">Website</div>
+            <div class="ci-value"><a href="https://gadgetpulse.co.in">gadgetpulse.co.in</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">⏱️</span>
+          <div class="ci-content">
+            <div class="ci-label">Response Time</div>
+            <div class="ci-value">Within 24–48 hours</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>Frequently Asked</h3>
+        <div class="faq-item">
+          <div class="q">Do you accept product review requests?</div>
+          <div class="a">Yes! Brands can reach out via email for review collaborations. We maintain editorial independence in all reviews.</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Can I suggest a product for you to cover?</div>
+          <div class="a">Absolutely — use the contact form above and select "Product Recommendation Request".</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Do affiliate links cost me anything extra?</div>
+          <div class="a">No — you pay the same price on Amazon. We just earn a small commission for referring you.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GadgetPulse India</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 GadgetPulse India. As an Amazon Associate, we earn from qualifying purchases. Affiliate tag: gadgetpuls061-21</p>
+  </footer>
+
+  <script>
+    async function handleSubmit() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+
+      // Hide previous messages
+      document.getElementById('successMsg').style.display = 'none';
+      document.getElementById('errorMsg').style.display = 'none';
+
+      // Validate
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields before sending.');
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Disable button while sending
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const response = await fetch('https://formspree.io/f/mojzzyoa', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (response.ok) {
+          // Show success
+          document.getElementById('successMsg').style.display = 'block';
+          // Clear form
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('subject').value = '';
+          document.getElementById('message').value = '';
+        } else {
+          document.getElementById('errorMsg').style.display = 'block';
+        }
+      } catch (err) {
+        document.getElementById('errorMsg').style.display = 'block';
+      }
+
+      // Re-enable button
+      btn.disabled = false;
+      btn.textContent = 'Send Message →';
+    }
+  </script>
+
+</body>
+</html>
