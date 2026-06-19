@@ -5,7 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GadgetPulse India – Best Tech Reviews & Deals</title>
   <meta name="description" content="Honest reviews of the best gadgets, smartphones, and tech products in India."/>
+  <link rel="canonical" href="https://gadgetpulse.co.in/" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- ✅ Google Analytics GA4 — Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -26,7 +37,7 @@
     body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
     a { color:inherit; text-decoration:none; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position:sticky; top:0; z-index:100;
       background:rgba(10,10,15,0.92); backdrop-filter:blur(14px);
@@ -35,7 +46,7 @@
     }
     .logo { font-family:var(--font-head); font-size:1.25rem; font-weight:700; letter-spacing:-0.02em; }
     .logo span { color:var(--pulse); }
-    .nav-links { display:flex; gap:28px; font-size:0.88rem; color:var(--muted); }
+    .nav-links { display:flex; gap:24px; font-size:0.88rem; color:var(--muted); }
     .nav-links a { transition:color .2s; padding:4px 0; }
     .nav-links a:hover { color:var(--text); }
     .nav-cta {
@@ -46,18 +57,16 @@
     }
     .nav-cta:hover { opacity:.85; transform:translateY(-1px); }
 
-    /* ── CATEGORY FILTER BAR ── */
+    /* CATEGORY FILTER BAR */
     .cat-bar {
       background:var(--surface); border-bottom:1px solid var(--border);
-      padding:0 5%; display:flex; gap:8px; overflow-x:auto;
-      scrollbar-width:none;
+      padding:0 5%; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
     }
     .cat-bar::-webkit-scrollbar { display:none; }
     .cat-btn {
       flex-shrink:0; background:none; border:1px solid transparent;
       color:var(--muted); font-family:var(--font-head); font-size:0.8rem; font-weight:500;
-      padding:10px 16px; cursor:pointer; border-radius:6px; transition:all .2s;
-      white-space:nowrap;
+      padding:10px 16px; cursor:pointer; border-radius:6px; transition:all .2s; white-space:nowrap;
     }
     .cat-btn:hover { color:var(--text); border-color:var(--border); }
     .cat-btn.active { color:var(--pulse); border-color:var(--pulse); background:var(--pulse-dim); }
@@ -69,7 +78,7 @@
     .deal-cat-btn:hover { color:var(--text); border-color:var(--border); }
     .deal-cat-btn.active { color:var(--amber); border-color:var(--amber); background:#ffb83018; }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero { padding:80px 5% 60px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; max-width:1200px; margin:0 auto; }
     .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--pulse-dim); border:1px solid var(--pulse); color:var(--pulse); font-size:0.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:20px; margin-bottom:18px; }
     .hero-eyebrow::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--pulse); animation:blink 1.5s ease-in-out infinite; }
@@ -82,7 +91,6 @@
     .btn-primary:hover { transform:translateY(-1px); opacity:.9; }
     .btn-ghost { border:1px solid var(--border); color:var(--text); font-family:var(--font-head); font-weight:500; font-size:0.9rem; padding:12px 24px; border-radius:8px; transition:border-color .2s, background .2s; }
     .btn-ghost:hover { border-color:var(--pulse); background:var(--pulse-dim); }
-
     .hero-visual { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; position:relative; overflow:hidden; }
     .hero-visual::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,#00d4ff18 0%,transparent 70%); pointer-events:none; }
     .stat-row { display:flex; gap:20px; margin-bottom:24px; }
@@ -98,7 +106,7 @@
     .cta-small:hover { opacity:.85; }
     .stars { color:var(--amber); font-size:0.8rem; margin-bottom:4px; }
 
-    /* ── TICKER ── */
+    /* TICKER */
     .ticker-wrap { border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--surface); overflow:hidden; padding:10px 0; }
     .ticker { display:flex; gap:60px; animation:scroll 30s linear infinite; white-space:nowrap; }
     .ticker:hover { animation-play-state:paused; }
@@ -106,7 +114,7 @@
     .tick-item { display:flex; align-items:center; gap:8px; font-size:0.8rem; color:var(--muted); flex-shrink:0; }
     .tick-item .dot { width:6px; height:6px; border-radius:50%; background:var(--pulse); }
 
-    /* ── SECTION ── */
+    /* SECTION */
     .section { padding:64px 5%; max-width:1200px; margin:0 auto; }
     .section-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:32px; }
     .section-title { font-family:var(--font-head); font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; }
@@ -114,7 +122,7 @@
     .see-all { font-size:0.82rem; color:var(--pulse); transition:opacity .2s; }
     .see-all:hover { opacity:.7; text-decoration:underline; }
 
-    /* ── FEATURED GRID ── */
+    /* FEATURED GRID */
     .featured-grid { display:grid; grid-template-columns:1.6fr 1fr; gap:20px; margin-bottom:64px; }
     .card-featured { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:border-color .2s, transform .2s; }
     .card-featured:hover { border-color:var(--pulse); transform:translateY(-3px); }
@@ -125,7 +133,7 @@
     .affi-btn { display:inline-flex; align-items:center; gap:8px; background:var(--amber); color:#000; font-family:var(--font-head); font-weight:700; font-size:0.82rem; padding:10px 18px; border-radius:8px; transition:opacity .15s, transform .15s; }
     .affi-btn:hover { opacity:.85; transform:translateY(-1px); }
 
-    /* ── CARDS GRID ── */
+    /* CARDS GRID */
     .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
     .card { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:transform .2s, border-color .2s; cursor:pointer; display:block; }
     .card:hover { transform:translateY(-4px); border-color:var(--pulse); }
@@ -143,19 +151,13 @@
     .card-meta { font-size:0.75rem; color:var(--muted); }
     .rating { color:var(--amber); }
 
-    /* ── NO RESULTS ── */
+    /* NO RESULTS */
     .no-results { grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--muted); }
     .no-results span { display:block; font-size:2rem; margin-bottom:12px; }
 
-    /* ── DEALS STRIP ── */
+    /* DEALS STRIP */
     .deals-strip { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px 28px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px 16px; }
-    .deal-item {
-      display:flex; align-items:center; gap:14px;
-      padding:14px; border-radius:10px; border:1px solid transparent;
-      text-decoration:none; color:inherit;
-      transition:border-color .2s, background .2s, transform .2s;
-      cursor:pointer;
-    }
+    .deal-item { display:flex; align-items:center; gap:14px; padding:14px; border-radius:10px; border:1px solid transparent; text-decoration:none; color:inherit; transition:border-color .2s, background .2s, transform .2s; cursor:pointer; }
     .deal-item:hover { border-color:var(--pulse); background:var(--card); transform:translateY(-2px); }
     .deal-icon { width:48px; height:48px; border-radius:12px; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
     .deal-item h4 { font-family:var(--font-head); font-size:0.88rem; font-weight:600; margin-bottom:3px; }
@@ -165,7 +167,7 @@
     .deal-arrow { margin-left:auto; font-size:0.9rem; color:var(--pulse); opacity:0; transform:translateX(-4px); transition:opacity .2s, transform .2s; flex-shrink:0; }
     .deal-item:hover .deal-arrow { opacity:1; transform:translateX(0); }
 
-    /* ── NEWSLETTER ── */
+    /* NEWSLETTER */
     .newsletter { background:linear-gradient(135deg,#00d4ff0d 0%,#0a0a0f 60%); border:1px solid var(--border); border-radius:16px; padding:48px; text-align:center; margin:0 5% 64px; }
     .newsletter h2 { font-family:var(--font-head); font-size:1.6rem; font-weight:700; margin-bottom:10px; letter-spacing:-0.02em; }
     .newsletter p { color:var(--muted); margin-bottom:24px; font-size:0.92rem; }
@@ -175,19 +177,21 @@
     .email-row button { background:var(--pulse); color:#000; font-family:var(--font-head); font-weight:600; font-size:0.88rem; padding:11px 20px; border-radius:8px; border:none; cursor:pointer; transition:opacity .2s, transform .15s; }
     .email-row button:hover { opacity:.85; transform:translateY(-1px); }
 
-    /* ── TOAST ── */
+    /* TOAST */
     .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(60px); background:#1e1e2e; border:1px solid var(--pulse); color:var(--text); font-family:var(--font-head); font-size:0.85rem; padding:12px 24px; border-radius:30px; z-index:999; opacity:0; transition:all .35s cubic-bezier(.22,1,.36,1); pointer-events:none; white-space:nowrap; }
     .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer { border-top:1px solid var(--border); padding:28px 5%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
     footer .logo { font-size:1rem; }
     footer p { font-size:0.78rem; color:var(--muted); }
     .footer-links { display:flex; gap:20px; font-size:0.78rem; color:var(--muted); }
+    .footer-links a { transition:color .2s; }
     .footer-links a:hover { color:var(--pulse); }
-    .affiliate-note { width:100%; font-size:0.72rem; color:var(--muted); border-top:1px solid var(--border); padding-top:16px; margin-top:8px; }
+    .affiliate-note { width:100%; font-size:0.72rem; color:var(--muted); border-top:1px solid var(--border); padding-top:16px; margin-top:8px; line-height:1.7; }
+    .affiliate-note a { color:var(--pulse); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width:768px) {
       .hero { grid-template-columns:1fr; padding:48px 5% 40px; }
       .hero-visual { display:none; }
@@ -199,7 +203,7 @@
       footer { flex-direction:column; align-items:flex-start; }
     }
 
-    /* ── ANIMATIONS ── */
+    /* ANIMATIONS */
     [data-fade] { opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease; }
     [data-fade].visible { opacity:1; transform:translateY(0); }
   </style>
@@ -208,13 +212,15 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">Gadget<span>Pulse</span></div>
+  <a href="index.html" class="logo">Gadget<span>Pulse</span></a>
   <div class="nav-links">
     <a href="#" data-cat="Smartphones">Smartphones</a>
     <a href="#" data-cat="Laptops">Laptops</a>
     <a href="#" data-cat="Audio">Audio</a>
     <a href="#" data-cat="Smart Home">Smart Home</a>
     <a href="#deals">Deals</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </div>
   <a href="#newsletter" class="nav-cta">Get Deals Free</a>
 </nav>
@@ -280,14 +286,13 @@
   </div>
 </div>
 
-<!-- FEATURED REVIEWS — top 3 rows from Google Sheet -->
+<!-- FEATURED REVIEWS -->
 <div class="section" id="reviews">
   <div class="section-head" data-fade>
     <h2 class="section-title">Featured <span>Reviews</span></h2>
     <a href="#" class="see-all" id="see-all-link">All Reviews →</a>
   </div>
   <div id="featured-grid-wrap" data-fade></div>
-
   <div class="section-head" style="margin-top:48px" data-fade>
     <h2 class="section-title">Latest <span>Reviews</span></h2>
   </div>
@@ -304,8 +309,6 @@
     <h2 class="section-title">🔥 Hottest Deals <span>Right Now</span></h2>
     <a href="https://www.amazon.in/?tag=gadgetpuls061-21" target="_blank" rel="noopener" class="see-all">All Deals on Amazon →</a>
   </div>
-
-  <!-- DEALS CATEGORY FILTER -->
   <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;overflow-x:auto;scrollbar-width:none" data-fade>
     <button class="deal-cat-btn active" data-deal-cat="All">All Deals</button>
     <button class="deal-cat-btn" data-deal-cat="Apple">🍎 Apple</button>
@@ -316,33 +319,20 @@
     <button class="deal-cat-btn" data-deal-cat="Wearables">⌚ Wearables</button>
     <button class="deal-cat-btn" data-deal-cat="Accessories">🔌 Accessories</button>
   </div>
-
-  <!-- DEALS GRID — loaded from Google Sheet -->
   <div class="deals-strip" id="deals-grid" data-fade>
-    <!-- skeleton loaders -->
-    <div class="deal-item" style="pointer-events:none">
-      <div class="deal-icon" style="background:var(--border)"></div>
-      <div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div>
-    </div>
-    <div class="deal-item" style="pointer-events:none">
-      <div class="deal-icon" style="background:var(--border)"></div>
-      <div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div>
-    </div>
-    <div class="deal-item" style="pointer-events:none">
-      <div class="deal-icon" style="background:var(--border)"></div>
-      <div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div>
-    </div>
+    <div class="deal-item" style="pointer-events:none"><div class="deal-icon" style="background:var(--border)"></div><div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div></div>
+    <div class="deal-item" style="pointer-events:none"><div class="deal-icon" style="background:var(--border)"></div><div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div></div>
+    <div class="deal-item" style="pointer-events:none"><div class="deal-icon" style="background:var(--border)"></div><div style="flex:1"><div class="skel-line" style="width:60%;margin-bottom:6px"></div><div class="skel-line" style="width:80%;height:10px"></div></div></div>
   </div>
-
   <div style="margin-top:14px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:0.74rem;color:var(--muted);">
-    ⚠️ <strong style="color:var(--text)">Affiliate Disclosure:</strong> Links above are Amazon affiliate links. We earn a small commission if you buy — at no extra cost to you. This keeps our reviews free.
+    ⚠️ <strong style="color:var(--text)">Affiliate Disclosure:</strong> Links above are Amazon affiliate links (tag: gadgetpuls061-21). We earn a small commission if you buy — at no extra cost to you. This keeps our reviews free.
   </div>
 </div>
 
 <!-- NEWSLETTER -->
 <div class="newsletter" id="newsletter" data-fade>
   <h2>Get Deals Before Everyone Else</h2>
-  <p>Join 12,000+ readers who get weekly deals, honest reviews, and buying guides — completely free.</p>
+  <p>Join our readers who get weekly deals, honest reviews, and buying guides — completely free.</p>
   <div class="email-row">
     <input type="email" id="email-input" placeholder="your@email.com" />
     <button id="subscribe-btn">Subscribe Free</button>
@@ -351,33 +341,26 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="logo">Gadget<span style="color:var(--pulse)">Pulse</span></div>
+  <a href="index.html" class="logo">Gadget<span style="color:var(--pulse)">Pulse</span></a>
   <p>© 2026 GadgetPulse India. All Rights Reserved.</p>
   <div class="footer-links">
-    <a href="#" onclick="showToast('About page coming soon!')">About</a>
-    <a href="mailto:contact@gadgetpulse.in">Contact</a>
-    <a href="#" onclick="showToast('Privacy Policy coming soon!')">Privacy Policy</a>
-    <a href="#" onclick="showToast('Affiliate Disclosure coming soon!')">Affiliate Disclosure</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
   </div>
-  <p class="affiliate-note">GadgetPulse India is a participant in the Amazon Associates Programme and other affiliate programmes. We earn commissions from qualifying purchases. Our editorial opinions are always independent.</p>
+  <p class="affiliate-note">
+    GadgetPulse India is a participant in the Amazon Associates Programme. We earn commissions from qualifying purchases at no extra cost to you. Our editorial opinions are always independent. Affiliate tag: gadgetpuls061-21 &nbsp;|&nbsp;
+    <a href="mailto:gadgetpulse.co.in@gmail.com">gadgetpulse.co.in@gmail.com</a>
+  </p>
 </footer>
 
-<!-- TOAST NOTIFICATION -->
+<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ════════════════════════════════════════════════════════
-//  CONFIGURATION
-//  SHEET_CSV_URL  → Tab 1: your blog articles
-//  DEALS_CSV_URL  → Tab 2: your deals (add gid of Deals tab)
-//
-//  HOW TO GET DEALS_CSV_URL:
-//  1. In your Google Sheet, create a new tab called "Deals"
-//  2. File → Share → Publish to web → choose "Deals" tab → CSV
-//  3. Copy the URL and paste below replacing DEALS_CSV_URL value
-// ════════════════════════════════════════════════════════
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=1980989218&single=true&output=csv';
-const DEALS_CSV_URL  = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=481003703&single=true&output=csv';
+const DEALS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=481003703&single=true&output=csv';
 const AFFILIATE_TAG = 'gadgetpuls061-21';
 
 const GRADIENTS = [
@@ -391,101 +374,14 @@ const GRADIENTS = [
   'linear-gradient(135deg,#0a0a1a,#0d0d28)',
 ];
 
-// ── GLOBAL STATE ──────────────────────────────────────────
-let allBlogs = [];
-let activeCategory = 'All';
-let allDeals = [];
-let activeDealCat = 'All';
+let allBlogs = [], activeCategory = 'All', allDeals = [], activeDealCat = 'All';
 
-// ── RENDER DEALS ──────────────────────────────────────────
-function renderDeals(deals) {
-  const grid = document.getElementById('deals-grid');
-  if (!deals.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">No deals in this category yet — add rows to your Deals sheet tab!</div>';
-    return;
-  }
-  grid.innerHTML = deals.map(d => {
-    const old = d.old_price ? `<span class="deal-old">${d.old_price}</span>` : '';
-    const badge = d.badge ? `<span style="background:#ff4c2218;color:#ff7055;font-size:0.65rem;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:6px">${d.badge}</span>` : '';
-    return `<a class="deal-item" href="${d.amazon_url || '#'}" target="_blank" rel="noopener noreferrer">
-      <div class="deal-icon">${d.emoji || '🛒'}</div>
-      <div style="flex:1;min-width:0">
-        <h4 style="display:flex;align-items:center;flex-wrap:wrap;gap:4px">${d.name}${badge}</h4>
-        <p class="deal-desc">${d.description || ''}</p>
-        <span class="deal-price">${d.price}</span>${old}
-      </div>
-      <span class="deal-arrow">→</span>
-    </a>`;
-  }).join('');
-}
-
-// ── FILTER DEALS ──────────────────────────────────────────
-function filterDeals(cat) {
-  activeDealCat = cat;
-  document.querySelectorAll('.deal-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.dealCat === cat));
-  const filtered = cat === 'All' ? allDeals : allDeals.filter(d => d.category && d.category.toLowerCase() === cat.toLowerCase());
-  renderDeals(filtered);
-}
-
-// ── LOAD DEALS FROM SHEET ─────────────────────────────────
-async function loadDeals() {
-  try {
-    const res = await fetch(DEALS_CSV_URL);
-    if (!res.ok) throw new Error('deals fetch failed');
-    const text = await res.text();
-    const all = parseCSV(text);
-    allDeals = all.filter(d => d.active === 'TRUE' || d.active === 'true' || d.active === '1');
-    renderDeals(allDeals);
-  } catch (err) {
-    // Fallback to hardcoded deals if sheet not set up yet
-    console.warn('Deals sheet not configured yet — showing default deals');
-    renderDefaultDeals();
-  }
-}
-
-// ── DEFAULT DEALS (shown until Google Sheet Deals tab is set up) ──
-function renderDefaultDeals() {
-  const TAG = 'gadgetpuls061-21';
-  const defaults = [
-    // Apple Products
-    { name:'iPhone 16 Pro', emoji:'📱', description:'A18 Pro · 48MP · 4K120fps ProRes · Titanium', price:'₹1,19,900', old_price:'₹1,34,900', amazon_url:`https://www.amazon.in/s?k=iPhone+16+Pro&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'iPhone 16', emoji:'📱', description:'A18 chip · 48MP · Apple Intelligence · USB-C', price:'₹79,900', old_price:'₹89,900', amazon_url:`https://www.amazon.in/s?k=iPhone+16&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'Apple AirPods 4', emoji:'🎧', description:'H2 chip · ANC · Spatial Audio · 30hrs case', price:'₹14,900', old_price:'₹19,900', amazon_url:`https://www.amazon.in/s?k=AirPods+4&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'Apple AirPods Pro 2', emoji:'🎧', description:'Best-in-class ANC · Hearing Health · MagSafe', price:'₹24,900', old_price:'₹29,900', amazon_url:`https://www.amazon.in/s?k=AirPods+Pro+2&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'Apple Watch Series 10', emoji:'⌚', description:'Thinnest ever · Sleep apnea · Always-on · GPS', price:'₹41,900', old_price:'₹46,900', amazon_url:`https://www.amazon.in/s?k=Apple+Watch+Series+10&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'MacBook Air M3 13"', emoji:'💻', description:'M3 chip · 18hr battery · 8GB RAM · 256GB SSD', price:'₹1,09,900', old_price:'₹1,19,900', amazon_url:`https://www.amazon.in/s?k=MacBook+Air+M3&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'MacBook Pro M3 14"', emoji:'💻', description:'M3 Pro · 11hr battery · 120Hz Liquid Retina XDR', price:'₹1,69,900', old_price:'₹1,99,900', amazon_url:`https://www.amazon.in/s?k=MacBook+Pro+M3+14+inch&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'iPad Air M2 11"', emoji:'📱', description:'M2 chip · 11" Liquid Retina · Apple Pencil Pro ready', price:'₹59,900', old_price:'₹69,900', amazon_url:`https://www.amazon.in/s?k=iPad+Air+M2+11+inch&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'iPad Pro M4 11"', emoji:'📱', description:'M4 chip · Ultra Retina XDR · 5G · Thinnest iPad ever', price:'₹99,900', old_price:'₹1,19,900', amazon_url:`https://www.amazon.in/s?k=iPad+Pro+M4+11+inch&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'Apple Pencil Pro', emoji:'✏️', description:'Squeeze · Find My · Hover · Barrel Roll · works iPad Pro/Air', price:'₹11,900', old_price:'₹14,900', amazon_url:`https://www.amazon.in/s?k=Apple+Pencil+Pro&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'MagSafe Charger 25W', emoji:'🔌', description:'25W fast MagSafe charging for iPhone 12 and above', price:'₹4,900', old_price:'₹5,900', amazon_url:`https://www.amazon.in/s?k=Apple+MagSafe+Charger+25W&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    { name:'Apple HomePod mini', emoji:'🔊', description:'360° audio · Siri · smart home hub · Thread support', price:'₹9,900', old_price:'₹11,900', amazon_url:`https://www.amazon.in/s?k=Apple+HomePod+mini&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
-    // Samsung
-    { name:'Samsung Galaxy S25 Ultra', emoji:'📱', description:'200MP · Snapdragon 8 Elite · S Pen · 7 years updates', price:'₹1,24,999', old_price:'₹1,34,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+S25+Ultra&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
-    { name:'Samsung Galaxy S25', emoji:'📱', description:'50MP · Snapdragon 8 Elite · compact · AI features', price:'₹74,999', old_price:'₹84,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+S25&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
-    { name:'Samsung Galaxy Buds 3 Pro', emoji:'🎧', description:'Blade design · ANC · 360° audio · Galaxy AI', price:'₹17,999', old_price:'₹22,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+Buds+3+Pro&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
-    // Other top deals
-    { name:'OnePlus 13', emoji:'📱', description:'Snapdragon 8 Elite · Hasselblad 50MP · 100W charging', price:'₹69,999', old_price:'₹79,999', amazon_url:`https://www.amazon.in/s?k=OnePlus+13&tag=${TAG}`, badge:'🔥 Hot', category:'Phones' },
-    { name:'Redmi Note 14 Pro+', emoji:'📱', description:'200MP · 5G · 90W HyperCharge · IP68', price:'₹26,999', old_price:'₹32,999', amazon_url:`https://www.amazon.in/s?k=Redmi+Note+14+Pro+Plus&tag=${TAG}`, badge:'💚 Value', category:'Phones' },
-    { name:'Sony WH-1000XM5', emoji:'🎧', description:'Best ANC · 30hrs · LDAC · multipoint connect', price:'₹26,990', old_price:'₹34,990', amazon_url:`https://www.amazon.in/s?k=Sony+WH-1000XM5&tag=${TAG}`, badge:'🔥 Hot', category:'Audio' },
-    { name:'boAt Airdopes 141 ANC', emoji:'🎧', description:'ANC · 42hrs · IPX4 · best budget earbuds', price:'₹1,299', old_price:'₹2,990', amazon_url:`https://www.amazon.in/s?k=boAt+Airdopes+141+ANC&tag=${TAG}`, badge:'💚 Budget', category:'Audio' },
-    { name:'Amazfit Bip 5 Unity', emoji:'⌚', description:'AMOLED · GPS · Alexa · 10 day battery', price:'₹4,499', old_price:'₹5,499', amazon_url:`https://www.amazon.in/s?k=Amazfit+Bip+5+Unity&tag=${TAG}`, badge:'💚 Value', category:'Wearables' },
-    { name:'Ambrane 65W GaN Charger', emoji:'⚡', description:'65W · 3 ports · USB-C + USB-A · foldable pins', price:'₹1,299', old_price:'₹1,999', amazon_url:`https://www.amazon.in/s?k=Ambrane+65W+GaN+charger&tag=${TAG}`, badge:'💚 Budget', category:'Accessories' },
-    { name:'Samsung T7 Shield SSD 1TB', emoji:'💾', description:'1050MB/s · IP65 · drop-proof · USB-C · 1TB', price:'₹8,999', old_price:'₹12,999', amazon_url:`https://www.amazon.in/s?k=Samsung+T7+Shield+1TB&tag=${TAG}`, badge:'🔥 Hot', category:'Accessories' },
-  ];
-  allDeals = defaults;
-  renderDeals(defaults);
-}
-
-// ── TOAST ─────────────────────────────────────────────────
 function showToast(msg, duration = 2800) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), duration);
 }
 
-// ── CSV PARSER ────────────────────────────────────────────
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
@@ -504,84 +400,44 @@ function parseCSV(text) {
   });
 }
 
-// ── BADGE HTML ────────────────────────────────────────────
 function badgeHTML(label, type) {
   if (!label) return '';
   const icons = { hot:'🔥 ', new:'✦ ', budget:'💚 ' };
   return `<span class="tag ${type||''}">${(icons[type]||'')}${label}</span>`;
 }
 
-// ── CARD HTML ─────────────────────────────────────────────
 function makeCardHTML(b, i, isFeaturedMain = false, isFeaturedSide = false) {
   const grad = GRADIENTS[i % GRADIENTS.length];
-  const url  = b.url || '#';
-  const tags = `
-    ${badgeHTML(b.badge_label, b.badge_type)}
-    ${b.category ? `<span class="tag">${b.category}</span>` : ''}`;
-
+  const url = b.url || '#';
+  const tags = `${badgeHTML(b.badge_label, b.badge_type)}${b.category ? `<span class="tag">${b.category}</span>` : ''}`;
   if (isFeaturedMain) {
-    return `
-      <a href="${url}" class="card-featured" style="text-decoration:none" ${url==='#'?'onclick="return false"':''}>
-        <div class="card-img" style="background:${grad};aspect-ratio:2.2/1;font-size:5rem">${b.emoji||'📄'}</div>
-        <div class="card-body">
-          <div class="card-tags">${tags}</div>
-          <h3>${b.title}</h3>
-          <p>${b.summary}</p>
-          <div class="card-foot" style="margin-bottom:16px">
-            ${b.price  ? `<span class="card-price">${b.price}</span>` : ''}
-            ${b.rating ? `<span class="rating card-meta">${b.rating}</span>` : ''}
-          </div>
-          <span class="affi-btn">Read Full Review →</span>
-        </div>
-      </a>`;
+    return `<a href="${url}" class="card-featured" style="text-decoration:none" ${url==='#'?'onclick="return false"':''}>
+      <div class="card-img" style="background:${grad};aspect-ratio:2.2/1;font-size:5rem">${b.emoji||'📄'}</div>
+      <div class="card-body"><div class="card-tags">${tags}</div><h3>${b.title}</h3><p>${b.summary}</p>
+      <div class="card-foot" style="margin-bottom:16px">${b.price?`<span class="card-price">${b.price}</span>`:''} ${b.rating?`<span class="rating card-meta">${b.rating}</span>`:''}</div>
+      <span class="affi-btn">Read Full Review →</span></div></a>`;
   }
   if (isFeaturedSide) {
-    return `
-      <a href="${url}" class="card-featured" style="flex:1;text-decoration:none" ${url==='#'?'onclick="return false"':''}>
-        <div class="card-img" style="background:${grad};aspect-ratio:2.8/1;font-size:3rem">${b.emoji||'📄'}</div>
-        <div class="card-body">
-          <div class="card-tags">${tags}</div>
-          <h3>${b.title}</h3>
-          <p>${b.summary}</p>
-          <span class="affi-btn" style="font-size:0.78rem;padding:8px 14px">Read Article →</span>
-        </div>
-      </a>`;
+    return `<a href="${url}" class="card-featured" style="flex:1;text-decoration:none" ${url==='#'?'onclick="return false"':''}>
+      <div class="card-img" style="background:${grad};aspect-ratio:2.8/1;font-size:3rem">${b.emoji||'📄'}</div>
+      <div class="card-body"><div class="card-tags">${tags}</div><h3>${b.title}</h3><p>${b.summary}</p>
+      <span class="affi-btn" style="font-size:0.78rem;padding:8px 14px">Read Article →</span></div></a>`;
   }
-  return `
-    <a href="${url}" class="card" style="text-decoration:none" ${url==='#'?'onclick="return false"':''}>
-      <div class="card-img" style="background:${grad}">${b.emoji||'📄'}</div>
-      <div class="card-body">
-        <div class="card-tags">${tags}</div>
-        <h3>${b.title}</h3>
-        <p>${b.summary}</p>
-        <div class="card-foot">
-          ${b.price  ? `<span class="card-price">${b.price}</span>` : ''}
-          ${b.rating ? `<span class="rating card-meta">${b.rating}</span>` : ''}
-        </div>
-      </div>
-    </a>`;
+  return `<a href="${url}" class="card" style="text-decoration:none" ${url==='#'?'onclick="return false"':''}>
+    <div class="card-img" style="background:${grad}">${b.emoji||'📄'}</div>
+    <div class="card-body"><div class="card-tags">${tags}</div><h3>${b.title}</h3><p>${b.summary}</p>
+    <div class="card-foot">${b.price?`<span class="card-price">${b.price}</span>`:''} ${b.rating?`<span class="rating card-meta">${b.rating}</span>`:''}</div>
+    </div></a>`;
 }
 
-// ── RENDER FEATURED (top 3 from sheet) ───────────────────
 function renderFeatured(blogs) {
   const wrap = document.getElementById('featured-grid-wrap');
   if (!blogs.length) { wrap.innerHTML = ''; return; }
-
   const [main, ...rest] = blogs;
   const sides = rest.slice(0,2);
-
-  wrap.innerHTML = `
-    <div class="featured-grid">
-      ${makeCardHTML(main, 0, true, false)}
-      <div style="display:flex;flex-direction:column;gap:20px">
-        ${sides.map((b,i) => makeCardHTML(b, i+1, false, true)).join('')}
-      </div>
-    </div>`;
-
-  wrap.querySelectorAll('[data-fade]').forEach(el => fadeObserver.observe(el));
+  wrap.innerHTML = `<div class="featured-grid">${makeCardHTML(main, 0, true, false)}<div style="display:flex;flex-direction:column;gap:20px">${sides.map((b,i) => makeCardHTML(b, i+1, false, true)).join('')}</div></div>`;
 }
 
-// ── RENDER LATEST CARDS ───────────────────────────────────
 function renderCards(blogs) {
   const grid = document.getElementById('blog-cards-grid');
   if (!blogs.length) {
@@ -589,100 +445,117 @@ function renderCards(blogs) {
     return;
   }
   grid.innerHTML = blogs.map((b,i) => makeCardHTML(b, i)).join('');
-  grid.querySelectorAll('.card').forEach(el => fadeObserver.observe(el));
 }
 
-// ── FILTER BY CATEGORY ────────────────────────────────────
 function filterAndRender(cat) {
   activeCategory = cat;
-  const filtered = cat === 'All'
-    ? allBlogs.slice(3)
-    : allBlogs.filter(b => b.category && b.category.toLowerCase() === cat.toLowerCase());
-
-  // Update featured section visibility
+  const filtered = cat === 'All' ? allBlogs.slice(3) : allBlogs.filter(b => b.category && b.category.toLowerCase() === cat.toLowerCase());
   const featWrap = document.getElementById('featured-grid-wrap');
-  if (cat !== 'All') {
-    featWrap.style.display = 'none';
-  } else {
-    featWrap.style.display = '';
-    renderFeatured(allBlogs.slice(0,3));
-  }
-
+  if (cat !== 'All') { featWrap.style.display = 'none'; } else { featWrap.style.display = ''; renderFeatured(allBlogs.slice(0,3)); }
   renderCards(filtered);
-
-  // Scroll to reviews
   document.getElementById('reviews').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-// ── LOAD BLOGS FROM GOOGLE SHEET ──────────────────────────
 async function loadBlogs() {
-  const grid = document.getElementById('blog-cards-grid');
   try {
-    const res  = await fetch(SHEET_CSV_URL);
+    const res = await fetch(SHEET_CSV_URL);
     if (!res.ok) throw new Error('Sheet fetch failed');
     const text = await res.text();
-    const all  = parseCSV(text);
-    allBlogs   = all.filter(b => b.published === 'TRUE' || b.published === 'true' || b.published === '1');
+    const all = parseCSV(text);
+    allBlogs = all.filter(b => b.published === 'TRUE' || b.published === 'true' || b.published === '1');
     renderFeatured(allBlogs.slice(0,3));
     renderCards(allBlogs.slice(3));
   } catch (err) {
-    console.error('Blog load error:', err);
-    grid.innerHTML = `
-      <div style="grid-column:1/-1;background:var(--surface);border:1px solid var(--amber);border-radius:12px;padding:28px;color:var(--muted);font-size:0.88rem">
-        <strong style="color:var(--amber)">⚠️ Could not load articles.</strong>
-        Make sure your Google Sheet is published: File → Share → Publish to web → CSV.
-      </div>`;
+    document.getElementById('blog-cards-grid').innerHTML = `<div style="grid-column:1/-1;background:var(--surface);border:1px solid var(--amber);border-radius:12px;padding:28px;color:var(--muted);font-size:0.88rem"><strong style="color:var(--amber)">⚠️ Could not load articles.</strong> Make sure your Google Sheet is published: File → Share → Publish to web → CSV.</div>`;
   }
 }
 
-// ── CATEGORY TABS (nav links + filter bar) ────────────────
+function renderDeals(deals) {
+  const grid = document.getElementById('deals-grid');
+  if (!deals.length) { grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">No deals in this category yet.</div>'; return; }
+  grid.innerHTML = deals.map(d => {
+    const old = d.old_price ? `<span class="deal-old">${d.old_price}</span>` : '';
+    const badge = d.badge ? `<span style="background:#ff4c2218;color:#ff7055;font-size:0.65rem;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:6px">${d.badge}</span>` : '';
+    return `<a class="deal-item" href="${d.amazon_url || '#'}" target="_blank" rel="noopener noreferrer">
+      <div class="deal-icon">${d.emoji || '🛒'}</div>
+      <div style="flex:1;min-width:0"><h4>${d.name}${badge}</h4><p class="deal-desc">${d.description || ''}</p><span class="deal-price">${d.price}</span>${old}</div>
+      <span class="deal-arrow">→</span></a>`;
+  }).join('');
+}
+
+function filterDeals(cat) {
+  activeDealCat = cat;
+  document.querySelectorAll('.deal-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.dealCat === cat));
+  const filtered = cat === 'All' ? allDeals : allDeals.filter(d => d.category && d.category.toLowerCase() === cat.toLowerCase());
+  renderDeals(filtered);
+}
+
+function renderDefaultDeals() {
+  const TAG = 'gadgetpuls061-21';
+  allDeals = [
+    { name:'iPhone 16 Pro', emoji:'📱', description:'A18 Pro · 48MP · 4K120fps ProRes · Titanium', price:'₹1,19,900', old_price:'₹1,34,900', amazon_url:`https://www.amazon.in/s?k=iPhone+16+Pro&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'iPhone 16', emoji:'📱', description:'A18 chip · 48MP · Apple Intelligence · USB-C', price:'₹79,900', old_price:'₹89,900', amazon_url:`https://www.amazon.in/s?k=iPhone+16&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple AirPods 4', emoji:'🎧', description:'H2 chip · ANC · Spatial Audio · 30hrs case', price:'₹14,900', old_price:'₹19,900', amazon_url:`https://www.amazon.in/s?k=AirPods+4&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Apple Watch Series 10', emoji:'⌚', description:'Thinnest ever · Sleep apnea · Always-on · GPS', price:'₹41,900', old_price:'₹46,900', amazon_url:`https://www.amazon.in/s?k=Apple+Watch+Series+10&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'MacBook Air M3 13"', emoji:'💻', description:'M3 chip · 18hr battery · 8GB RAM · 256GB SSD', price:'₹1,09,900', old_price:'₹1,19,900', amazon_url:`https://www.amazon.in/s?k=MacBook+Air+M3&tag=${TAG}`, badge:'🍎 Apple', category:'Apple' },
+    { name:'Samsung Galaxy S25 Ultra', emoji:'📱', description:'200MP · Snapdragon 8 Elite · S Pen · 7 years updates', price:'₹1,24,999', old_price:'₹1,34,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+S25+Ultra&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
+    { name:'Samsung Galaxy S25', emoji:'📱', description:'50MP · Snapdragon 8 Elite · compact · AI features', price:'₹74,999', old_price:'₹84,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+S25&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
+    { name:'Samsung Galaxy Buds 3 Pro', emoji:'🎧', description:'Blade design · ANC · 360° audio · Galaxy AI', price:'₹17,999', old_price:'₹22,999', amazon_url:`https://www.amazon.in/s?k=Samsung+Galaxy+Buds+3+Pro&tag=${TAG}`, badge:'🔥 Hot', category:'Samsung' },
+    { name:'OnePlus 13', emoji:'📱', description:'Snapdragon 8 Elite · Hasselblad 50MP · 100W charging', price:'₹69,999', old_price:'₹79,999', amazon_url:`https://www.amazon.in/s?k=OnePlus+13&tag=${TAG}`, badge:'🔥 Hot', category:'Phones' },
+    { name:'Redmi Note 14 Pro+', emoji:'📱', description:'200MP · 5G · 90W HyperCharge · IP68', price:'₹26,999', old_price:'₹32,999', amazon_url:`https://www.amazon.in/s?k=Redmi+Note+14+Pro+Plus&tag=${TAG}`, badge:'💚 Value', category:'Phones' },
+    { name:'Sony WH-1000XM5', emoji:'🎧', description:'Best ANC · 30hrs · LDAC · multipoint connect', price:'₹26,990', old_price:'₹34,990', amazon_url:`https://www.amazon.in/s?k=Sony+WH-1000XM5&tag=${TAG}`, badge:'🔥 Hot', category:'Audio' },
+    { name:'boAt Airdopes 141 ANC', emoji:'🎧', description:'ANC · 42hrs · IPX4 · best budget earbuds', price:'₹1,299', old_price:'₹2,990', amazon_url:`https://www.amazon.in/s?k=boAt+Airdopes+141+ANC&tag=${TAG}`, badge:'💚 Budget', category:'Audio' },
+    { name:'Amazfit Bip 5 Unity', emoji:'⌚', description:'AMOLED · GPS · Alexa · 10 day battery', price:'₹4,499', old_price:'₹5,499', amazon_url:`https://www.amazon.in/s?k=Amazfit+Bip+5+Unity&tag=${TAG}`, badge:'💚 Value', category:'Wearables' },
+    { name:'Ambrane 65W GaN Charger', emoji:'⚡', description:'65W · 3 ports · USB-C + USB-A · foldable pins', price:'₹1,299', old_price:'₹1,999', amazon_url:`https://www.amazon.in/s?k=Ambrane+65W+GaN+charger&tag=${TAG}`, badge:'💚 Budget', category:'Accessories' },
+    { name:'Samsung T7 Shield SSD 1TB', emoji:'💾', description:'1050MB/s · IP65 · drop-proof · USB-C', price:'₹8,999', old_price:'₹12,999', amazon_url:`https://www.amazon.in/s?k=Samsung+T7+Shield+1TB&tag=${TAG}`, badge:'🔥 Hot', category:'Accessories' },
+  ];
+  renderDeals(allDeals);
+}
+
+async function loadDeals() {
+  try {
+    const res = await fetch(DEALS_CSV_URL);
+    if (!res.ok) throw new Error('deals fetch failed');
+    const text = await res.text();
+    const all = parseCSV(text);
+    allDeals = all.filter(d => d.active === 'TRUE' || d.active === 'true' || d.active === '1');
+    if (allDeals.length) { renderDeals(allDeals); } else { renderDefaultDeals(); }
+  } catch (err) {
+    renderDefaultDeals();
+  }
+}
+
 document.querySelectorAll('[data-cat]').forEach(el => {
   el.addEventListener('click', e => {
     e.preventDefault();
     const cat = el.dataset.cat;
     if (!cat) return;
-
-    // Update active state on filter bar
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
-
     filterAndRender(cat);
   });
 });
 
-// ── NEWSLETTER SUBSCRIBE ──────────────────────────────────
-document.getElementById('subscribe-btn').addEventListener('click', () => {
-  const input = document.getElementById('email-input');
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    showToast('⚠️ Please enter a valid email address');
-    input.focus();
-    return;
-  }
-  // Replace with your email service (Mailchimp, ConvertKit, etc.)
-  // For now shows a confirmation toast
-  showToast('🎉 You\'re subscribed! Welcome to GadgetPulse.');
-  input.value = '';
-});
-
-// Allow Enter key in email input
-document.getElementById('email-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') document.getElementById('subscribe-btn').click();
-});
-
-// ── SCROLL FADE ANIMATIONS ────────────────────────────────
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('[data-fade]').forEach(el => fadeObserver.observe(el));
-
-// ── DEAL CATEGORY FILTER BUTTONS ─────────────────────────
 document.querySelectorAll('.deal-cat-btn').forEach(btn => {
   btn.addEventListener('click', () => filterDeals(btn.dataset.dealCat));
 });
 
-// ── BOOT ─────────────────────────────────────────────────
+document.getElementById('subscribe-btn').addEventListener('click', () => {
+  const input = document.getElementById('email-input');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { showToast('⚠️ Please enter a valid email address'); input.focus(); return; }
+  showToast('🎉 You\'re subscribed! Welcome to GadgetPulse.');
+  input.value = '';
+});
+
+document.getElementById('email-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('subscribe-btn').click();
+});
+
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('[data-fade]').forEach(el => fadeObserver.observe(el));
+
 loadBlogs();
 loadDeals();
 </script>
