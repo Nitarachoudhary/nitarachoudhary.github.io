@@ -105,6 +105,13 @@
     .cta-small { background:var(--pulse); color:#000; font-family:var(--font-head); font-size:0.78rem; font-weight:600; padding:7px 14px; border-radius:6px; transition:opacity .2s; }
     .cta-small:hover { opacity:.85; }
     .stars { color:var(--amber); font-size:0.8rem; margin-bottom:4px; }
+    .editor-picks-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .editor-pick-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 8px; text-align:center; text-decoration:none; transition:border-color .2s, transform .15s; }
+    .editor-pick-card:hover { border-color:var(--pulse); transform:translateY(-2px); }
+    .ep-icon { font-size:1.3rem; margin-bottom:6px; }
+    .ep-name { font-family:var(--font-head); font-size:0.78rem; font-weight:700; color:var(--text); line-height:1.25; margin-bottom:3px; }
+    .ep-spec { font-size:0.65rem; color:var(--muted); margin-bottom:6px; line-height:1.3; }
+    .ep-price { font-family:var(--font-head); font-size:0.78rem; font-weight:700; color:var(--amber); }
 
     /* TICKER */
     .ticker-wrap { border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--surface); overflow:hidden; padding:10px 0; }
@@ -135,6 +142,26 @@
 
     /* CARDS GRID */
     .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+
+    /* TOP 10 OF THE MONTH */
+    .top10-list { display:flex; flex-direction:column; gap:10px; }
+    .top10-card { display:flex; align-items:center; gap:16px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 18px; text-decoration:none; color:inherit; transition:border-color .2s, transform .15s, background .2s; }
+    .top10-card:hover { border-color:var(--amber); transform:translateX(4px); background:var(--surface); }
+    .top10-rank { font-family:var(--font-head); font-size:1.6rem; font-weight:700; color:var(--amber); width:42px; flex-shrink:0; text-align:center; opacity:0.85; }
+    .top10-card:nth-child(1) .top10-rank { color:#ffd700; opacity:1; }
+    .top10-card:nth-child(2) .top10-rank { color:#c9c9d4; opacity:1; }
+    .top10-card:nth-child(3) .top10-rank { color:#cd7f32; opacity:1; }
+    .top10-icon { width:44px; height:44px; border-radius:10px; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+    .top10-info { flex:1; min-width:0; }
+    .top10-name { font-family:var(--font-head); font-size:0.95rem; font-weight:600; margin-bottom:3px; }
+    .top10-why { font-size:0.78rem; color:var(--muted); line-height:1.4; }
+    .top10-right { text-align:right; flex-shrink:0; }
+    .top10-price { font-family:var(--font-head); font-weight:700; color:var(--amber); font-size:0.92rem; }
+    .top10-cta { font-size:0.7rem; color:var(--pulse); margin-top:2px; }
+    @media (max-width:600px) {
+      .top10-why { display:none; }
+      .top10-card { padding:12px 14px; gap:12px; }
+    }
     .card { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:transform .2s, border-color .2s; cursor:pointer; display:block; }
     .card:hover { transform:translateY(-4px); border-color:var(--pulse); }
     .card-img { width:100%; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; font-size:3rem; }
@@ -250,16 +277,29 @@
   </div>
   <div class="hero-visual">
     <div class="stat-row">
-      <div class="stat-box"><div class="num">200+</div><div class="lbl">Products Reviewed</div></div>
+      <div class="stat-box"><div class="num">300+</div><div class="lbl">Products Reviewed</div></div>
       <div class="stat-box"><div class="num">₹0</div><div class="lbl">Always Free to Read</div></div>
     </div>
-    <div class="featured-tag">Editor's Pick</div>
-    <div class="stars">★★★★★</div>
-    <h3>OnePlus 13 Review — Best Value Flagship?</h3>
-    <p>Flagship features at ₹69,999. Does the camera finally match the competition?</p>
-    <div class="price-row">
-      <span class="price">₹69,999</span>
-      <a href="https://www.amazon.in/s?k=OnePlus+13&tag=gadgetpuls061-21" target="_blank" rel="noopener" class="cta-small">Buy Now</a>
+    <div class="featured-tag">Editor's Picks — Latest Flagships</div>
+    <div class="editor-picks-row">
+      <a class="editor-pick-card" href="https://www.amazon.in/s?k=iPhone+17+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+        <div class="ep-icon">🍎</div>
+        <div class="ep-name">iPhone 17 Pro</div>
+        <div class="ep-spec">A19 Pro · Titanium</div>
+        <div class="ep-price">₹1,19,900</div>
+      </a>
+      <a class="editor-pick-card" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+        <div class="ep-icon">📱</div>
+        <div class="ep-name">Galaxy S25 Ultra</div>
+        <div class="ep-spec">200MP · S Pen</div>
+        <div class="ep-price">₹1,24,999</div>
+      </a>
+      <a class="editor-pick-card" href="https://www.amazon.in/s?k=OnePlus+15&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+        <div class="ep-icon">⚡</div>
+        <div class="ep-name">OnePlus 15</div>
+        <div class="ep-spec">Snapdragon · 100W</div>
+        <div class="ep-price">₹69,999</div>
+      </a>
     </div>
   </div>
 </div>
@@ -283,6 +323,19 @@
     <span class="tick-item"><span class="dot"></span> Asus ROG Zephyrus G14 – ₹1,19,990</span>
     <span class="tick-item"><span class="dot"></span> Realme GT 6T – ₹29,999</span>
     <span class="tick-item"><span class="dot"></span> Bose QuietComfort 45 – ₹24,990</span>
+  </div>
+</div>
+
+<!-- TOP 10 OF THE MONTH -->
+<div class="section" id="top10" style="padding-bottom:0">
+  <div class="section-head" data-fade>
+    <h2 class="section-title">🏆 <span id="top10-month-label">Top 10 Gadgets</span></h2>
+    <span class="see-all" style="color:var(--muted);cursor:default">Updated Monthly</span>
+  </div>
+  <div class="top10-list" id="top10-list" data-fade>
+    <div class="top10-card skeleton-card" aria-hidden="true" style="height:84px"><div class="skel-line" style="width:90%"></div></div>
+    <div class="top10-card skeleton-card" aria-hidden="true" style="height:84px"><div class="skel-line" style="width:80%"></div></div>
+    <div class="top10-card skeleton-card" aria-hidden="true" style="height:84px"><div class="skel-line" style="width:85%"></div></div>
   </div>
 </div>
 
@@ -364,6 +417,7 @@
 <script>
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=1980989218&single=true&output=csv';
 const DEALS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=481003703&single=true&output=csv';
+const TOP10_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTLAiV154AnrAMNNMZf4j_bMDfuZwh_0Nu6L3W9dNh_LXkce2zudWKadrhHaQC2TIK2jlrdVAEIebeZ/pub?gid=1386758988&single=true&output=csv';
 const AFFILIATE_TAG = 'gadgetpuls061-21';
 
 const GRADIENTS = [
@@ -515,6 +569,48 @@ function renderDefaultDeals() {
   renderDeals(allDeals);
 }
 
+function renderTop10(items) {
+  const list = document.getElementById('top10-list');
+  if (!items.length) {
+    list.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted)">Top 10 list coming soon — add rows to your Top10 Google Sheet tab!</div>';
+    return;
+  }
+  // Auto-detect month label from category column (e.g. "Top 10 — June 2026"), else fallback to current month
+  const monthLabel = items[0].category || `Top 10 — ${new Date().toLocaleString('en-IN', { month: 'long', year: 'numeric' })}`;
+  document.getElementById('top10-month-label').textContent = monthLabel;
+
+  list.innerHTML = items.slice(0, 10).map((item, i) => {
+    const rank = i + 1;
+    const link = item.url || '#';
+    // url column holds relative review-page filenames (e.g. top10-june2026-01-xxx.html)
+    return `<a class="top10-card" href="${link}" ${link!=='#' ? '' : 'onclick="return false"'}>
+      <div class="top10-rank">#${rank}</div>
+      <div class="top10-icon">${item.emoji || '🏆'}</div>
+      <div class="top10-info">
+        <div class="top10-name">${item.title}</div>
+        <div class="top10-why">${item.summary || ''}</div>
+      </div>
+      <div class="top10-right">
+        ${item.price ? `<div class="top10-price">${item.price}</div>` : (item.rating ? `<div class="top10-price" style="color:var(--amber)">${item.rating}</div>` : '')}
+        <div class="top10-cta">Read Review →</div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+async function loadTop10() {
+  try {
+    const res = await fetch(TOP10_CSV_URL);
+    if (!res.ok) throw new Error('Top10 fetch failed');
+    const text = await res.text();
+    const all = parseCSV(text);
+    const ranked = all.filter(d => d.published === 'TRUE' || d.published === 'true' || d.published === '1');
+    renderTop10(ranked);
+  } catch (err) {
+    document.getElementById('top10-list').innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted)">⚠️ Top 10 sheet not set up yet. See setup guide.</div>';
+  }
+}
+
 async function loadDeals() {
   try {
     const res = await fetch(DEALS_CSV_URL);
@@ -561,6 +657,7 @@ document.querySelectorAll('[data-fade]').forEach(el => fadeObserver.observe(el))
 
 loadBlogs();
 loadDeals();
+loadTop10();
 </script>
 </body>
 </html>
