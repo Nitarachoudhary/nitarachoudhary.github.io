@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GadgetPulse India — Best Gadget Deals</title>
-<meta name="description" content="Best gadget deals for Indian buyers. Phones, Earbuds, Laptops, Smartwatches — all Amazon links in one place.">
+<meta name="description" content="Best gadget deals for Indian buyers. Phones, Wearables, Audio, Smart Home, Laptops, Productivity — all Amazon links in one place.">
 <link rel="canonical" href="https://gadgetpulse.co.in/links.html" />
 
 <!-- Google Analytics GA4 -->
@@ -37,7 +37,12 @@
   .stat-num{font-size:15px;font-weight:600;color:var(--red);}
   .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
 
-  /* Filter tabs */
+  .search-box{width:100%;margin-bottom:16px;position:relative;}
+  .search-box input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:11px 14px 11px 38px;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .2s;}
+  .search-box input:focus{border-color:rgba(232,55,42,0.4);}
+  .search-box input::placeholder{color:var(--muted);}
+  .search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none;}
+
   .filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;width:100%;}
   .filter-btn{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.15s;white-space:nowrap;}
   .filter-btn:hover,.filter-btn.active{background:var(--tag-bg);border-color:rgba(232,55,42,0.3);color:var(--tag-text);}
@@ -72,7 +77,8 @@
   .amazon-dot{width:6px;height:6px;border-radius:50%;background:#ff9900;flex-shrink:0;}
   .footer{margin-top:32px;font-size:11px;color:var(--muted);text-align:center;line-height:1.8;}
   .footer a{color:rgba(232,55,42,0.7);text-decoration:none;}
-  @media(max-width:400px){.price-tag{display:none;}.link-name{font-size:12px;}}
+  .no-results{width:100%;text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;}
+  @media(max-width:400px){.link-name{font-size:12px;}}
 </style>
 </head>
 <body>
@@ -83,236 +89,1243 @@
     <div class="handle">@gadget_pulse_india</div>
     <div class="tagline">Honest reviews & best Amazon deals for Indian buyers 🇮🇳</div>
     <div class="stats">
-      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Products</div></div>
-      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Categories</div></div>
+      <div class="stat"><div class="stat-num">300+</div><div class="stat-label">Products</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Categories</div></div>
       <div class="stat"><div class="stat-num">₹0</div><div class="stat-label">Always Free</div></div>
     </div>
   </div>
 
-  <!-- Filter tabs -->
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
-    <button class="filter-btn" onclick="filterCards('apple',this)">🍎 Apple</button>
-    <button class="filter-btn" onclick="filterCards('phones',this)">📱 Phones</button>
-    <button class="filter-btn" onclick="filterCards('audio',this)">🎧 Audio</button>
-    <button class="filter-btn" onclick="filterCards('watches',this)">⌚ Watches</button>
-    <button class="filter-btn" onclick="filterCards('laptops',this)">💻 Laptops</button>
-    <button class="filter-btn" onclick="filterCards('accessories',this)">🔌 Accessories</button>
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search 300+ products..." oninput="searchProducts(this.value)">
   </div>
 
-  <!-- IPHONES -->
-  <div class="category cat-header" data-cat="phones apple"><div class="category-line"></div><div class="category-label">📱 iPhones</div><div class="category-line"></div></div>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('smartphones',this)">📱 Smartphones</button>
+    <button class="filter-btn" onclick="filterCards('wearables',this)">⌚ Wearables</button>
+    <button class="filter-btn" onclick="filterCards('audio',this)">🎧 Audio</button>
+    <button class="filter-btn" onclick="filterCards('smarthome',this)">🏠 Smart Home</button>
+    <button class="filter-btn" onclick="filterCards('laptops',this)">💻 Laptops & Tablets</button>
+    <button class="filter-btn" onclick="filterCards('productivity',this)">🖥️ Productivity</button>
+  </div>
 
-  <a class="link-card" data-tags="phones apple" href="https://www.amazon.in/s?k=iPhone+16+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPhone 16 Pro</div><div class="link-sub">A18 Pro · 48MP · 4K120fps ProRes · Titanium</div></div>
-    <div class="price-tag">₹1,19,900</div><div class="arrow">›</div>
+
+  <div class="category cat-header" data-cat="smartphones"><div class="category-line"></div><div class="category-label">📱 Smartphones & Accessories</div><div class="category-line"></div></div>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+iPhone+17+Pro+Max&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple iPhone 17 Pro Max</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="phones apple" href="https://www.amazon.in/s?k=iPhone+16+Pro+Max&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPhone 16 Pro Max</div><div class="link-sub">A18 Pro · 5x periscope zoom · Largest battery</div></div>
-    <div class="badge badge-hot">🔥 Hot</div><div class="price-tag">₹1,34,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+iPhone+17+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple iPhone 17 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="phones apple" href="https://www.amazon.in/s?k=iPhone+16&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPhone 16</div><div class="link-sub">A18 · 48MP · Apple Intelligence · USB-C</div></div>
-    <div class="price-tag">₹79,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+iPhone+17&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple iPhone 17</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="phones apple" href="https://www.amazon.in/s?k=iPhone+16+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPhone 16 Plus</div><div class="link-sub">A18 · 6.7 inch · 27hr battery · Apple Intelligence</div></div>
-    <div class="price-tag">₹89,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+A56+5G&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy A56 5G</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="phones apple" href="https://www.amazon.in/s?k=iPhone+15&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPhone 15</div><div class="link-sub">A16 Bionic · 48MP · Dynamic Island · USB-C</div></div>
-    <div class="badge badge-pick">Great Deal</div><div class="price-tag">₹59,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+S26+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy S26 Ultra</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+iPhone+16&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple iPhone 16</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+A36+5G&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy A36 5G</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+A16+5G&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy A16 5G</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Google+Pixel+10+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Google Pixel 10 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Google+Pixel+10a&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Google Pixel 10a</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=OnePlus+15&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">OnePlus 15</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+Z+Fold+7&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy Z Fold 7</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+Z+Flip+7&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy Z Flip 7</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Xiaomi+Redmi+Note+14+Pro+5G&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Xiaomi Redmi Note 14 Pro 5G</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+iPhone+17e&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple iPhone 17e</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Motorola+Edge+2025&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Motorola Edge 2025</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy S25</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+MagSafe+Wireless+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple MagSafe Wireless Charger</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+AirTag&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple AirTag</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+Galaxy+SmartTag+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy SmartTag 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Anker+737+Power+Bank&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Anker 737 Power Bank</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Spigen+Tough+Armor+Case+iPhone&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Spigen Tough Armor Case iPhone</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=OtterBox+Defender+Case+Samsung&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">OtterBox Defender Case Samsung</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Belkin+BoostCharge+Pro+3-in-1&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Belkin BoostCharge Pro 3-in-1</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=UGREEN+Nexode+65W+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">UGREEN Nexode 65W Charger</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Anker+Nano+3+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Anker Nano 3 Charger</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=ESR+HaloLock+Magnetic+Car+Mount&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">ESR HaloLock Magnetic Car Mount</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Spigen+Glas.tR+Screen+Protector&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Spigen Glas.tR Screen Protector</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Nomad+Rugged+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Nomad Rugged Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Casetify+Impact+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Casetify Impact Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=PopSockets+PopGrip+MagSafe&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">PopSockets PopGrip MagSafe</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=dbrand+Grip+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">dbrand Grip Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Anker+313+Wireless+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Anker 313 Wireless Charger</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Lisen+MagSafe+Car+Mount&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Lisen MagSafe Car Mount</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Torras+Magnetic+Kickstand+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Torras Magnetic Kickstand Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Baseus+100W+Power+Bank&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Baseus 100W Power Bank</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Shargeek+Storm+2+Power+Bank&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Shargeek Storm 2 Power Bank</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Pitaka+MagEZ+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Pitaka MagEZ Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Rhinoshield+SolidSuit&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Rhinoshield SolidSuit</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Moft+Snap-On+Stand&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Moft Snap-On Stand</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Anker+Powerline+III+USB-C+Cable&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Anker Powerline III USB-C Cable</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=UAG+Monarch+Series+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">UAG Monarch Series Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Belkin+ScreenForce+Glass&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Belkin ScreenForce Glass</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Apple+20W+USB-C+Power+Adapter&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Apple 20W USB-C Power Adapter</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Samsung+45W+Super+Fast+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung 45W Super Fast Charger</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Google+30W+USB-C+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Google 30W USB-C Charger</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=INIU+Portable+Charger+10000mAh&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">INIU Portable Charger 10000mAh</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Syncwire+USB-C+to+Lightning+Cable&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Syncwire USB-C to Lightning Cable</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Anker+Magnetic+Battery+MagGo&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Anker Magnetic Battery MagGo</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smartphones" href="https://www.amazon.in/s?k=Peak+Design+Mobile+Everyday+Case&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Peak Design Mobile Everyday Case</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
 
-  <!-- ANDROID PHONES -->
-  <div class="category cat-header" data-cat="phones"><div class="category-line"></div><div class="category-label">📱 Android Phones</div><div class="category-line"></div></div>
+  <div class="category cat-header" data-cat="wearables"><div class="category-line"></div><div class="category-label">⌚ Smartwatches & Health Wearables</div><div class="category-line"></div></div>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Apple+Watch+Series+11&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Apple Watch Series 11</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Apple+Watch+Ultra+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Apple Watch Ultra 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Apple+Watch+SE+3rd+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Apple Watch SE 3rd Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Samsung+Galaxy+Watch+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Samsung Galaxy Watch Ultra</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Samsung+Galaxy+Watch+8&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Samsung Galaxy Watch 8</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Samsung+Galaxy+Watch+7&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Samsung Galaxy Watch 7</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Google+Pixel+Watch+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Google Pixel Watch 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Google+Pixel+Watch+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Google Pixel Watch 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=OnePlus+Watch+2R&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">OnePlus Watch 2R</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=OnePlus+Watch+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">OnePlus Watch 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Fenix+8&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Fenix 8</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Fitbit+Charge+6&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Fitbit Charge 6</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Oura+Ring+Gen+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Oura Ring Gen 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Whoop+4.0&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Whoop 4.0</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Forerunner+265&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Forerunner 265</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Venu+X1&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Venu X1</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Venu+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Venu 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Amazfit+Active+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Amazfit Active 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Samsung+Galaxy+Fit3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Samsung Galaxy Fit3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Noise+ColorFit+Pulse+2+Max&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Noise ColorFit Pulse 2 Max</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Withings+ScanWatch+Light&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Withings ScanWatch Light</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Withings+ScanWatch+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Withings ScanWatch 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Epix+Pro+Gen+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Epix Pro Gen 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Fitbit+Versa+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Fitbit Versa 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Fitbit+Inspire+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Fitbit Inspire 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Huawei+Watch+Fit+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Huawei Watch Fit 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Huawei+Watch+GT+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Huawei Watch GT 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Coros+Pace+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Coros Pace 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Suunto+Race&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Suunto Race</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Suunto+Vertical&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Suunto Vertical</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Amazfit+T-Rex+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Amazfit T-Rex Ultra</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Amazfit+GTR+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Amazfit GTR 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Polar+Vantage+V3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Polar Vantage V3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Ultrahuman+Ring+Air&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Ultrahuman Ring Air</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Samsung+Galaxy+Ring&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Samsung Galaxy Ring</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Instinct+2X+Solar&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Instinct 2X Solar</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Forerunner+965&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Forerunner 965</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Coros+Apex+2+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Coros Apex 2 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Xiaomi+Smart+Band+9&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Xiaomi Smart Band 9</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+Lily+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin Lily 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Polar+Pacer+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Polar Pacer Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=RingConn+Smart+Ring&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">RingConn Smart Ring</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Whoop+Battery+Pack+4.0&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Whoop Battery Pack 4.0</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Garmin+HRM-Pro+Plus+Heart+Rate+Monitor&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Garmin HRM-Pro Plus Heart Rate Monitor</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Polar+H10+Heart+Rate+Sensor&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Polar H10 Heart Rate Sensor</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Wahoo+TICKR+Fit&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Wahoo TICKR Fit</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=QardioArm+Blood+Pressure+Monitor&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">QardioArm Blood Pressure Monitor</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Omron+Platinum+Blood+Pressure+Monitor&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Omron Platinum Blood Pressure Monitor</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=TicWatch+Pro+5+Enduro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">TicWatch Pro 5 Enduro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="wearables" href="https://www.amazon.in/s?k=Evie+Ring&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Evie Ring</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
 
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=OnePlus+13&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">OnePlus 13</div><div class="link-sub">Snapdragon 8 Elite · 50MP Hasselblad · 100W</div></div>
-    <div class="badge badge-hot">Editor's Pick</div><div class="price-tag">₹69,999</div><div class="arrow">›</div>
+  <div class="category cat-header" data-cat="audio"><div class="category-line"></div><div class="category-label">🎧 Wireless Audio & Sound</div><div class="category-line"></div></div>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Apple+AirPods+Pro+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Apple AirPods Pro 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy S25 Ultra</div><div class="link-sub">200MP · S Pen · Snapdragon 8 Elite · 7yr updates</div></div>
-    <div class="badge badge-hot">🔥 Hot</div><div class="price-tag">₹1,24,999</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Apple+AirPods+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Apple AirPods 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy S25+</div><div class="link-sub">50MP · Snapdragon 8 Elite · 4900mAh · slim</div></div>
-    <div class="price-tag">₹99,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy S25</div><div class="link-sub">Snapdragon 8 Elite · 50MP · compact 6.2 inch</div></div>
-    <div class="price-tag">₹74,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Samsung+Galaxy+S25+FE&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy S25 FE</div><div class="link-sub">AI features · 200MP · 7 years updates</div></div>
-    <div class="price-tag">₹49,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Samsung+Galaxy+Z+Fold+6&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy Z Fold 6</div><div class="link-sub">Best foldable · 7.6 inch inner screen</div></div>
-    <div class="badge badge-pick">Great Deal</div><div class="price-tag">₹1,24,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Samsung+Galaxy+Z+Flip+6&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Samsung Galaxy Z Flip 6</div><div class="link-sub">Flip design · 6.7 inch · 50MP · Snapdragon 8 Gen 3</div></div>
-    <div class="badge badge-pick">Great Deal</div><div class="price-tag">₹84,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Redmi+Note+14+Pro+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Redmi Note 14 Pro+</div><div class="link-sub">200MP · 5G · 90W HyperCharge · IP68</div></div>
-    <div class="badge badge-pick">Best Value</div><div class="price-tag">₹26,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="phones" href="https://www.amazon.in/s?k=Realme+GT+6T&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">Realme GT 6T</div><div class="link-sub">Performance flagship killer</div></div>
-    <div class="price-tag">₹29,999</div><div class="arrow">›</div>
-  </a>
-
-  <!-- AUDIO -->
-  <div class="category cat-header" data-cat="audio"><div class="category-line"></div><div class="category-label">🎧 Earbuds & Headphones</div><div class="category-line"></div></div>
-
-  <a class="link-card" data-tags="audio apple" href="https://www.amazon.in/s?k=Apple+AirPods+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Apple AirPods 4</div><div class="link-sub">H2 chip · ANC · Spatial Audio · 30hrs total</div></div>
-    <div class="price-tag">₹14,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="audio apple" href="https://www.amazon.in/s?k=Apple+AirPods+Pro+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Apple AirPods Pro 2</div><div class="link-sub">Best-in-class ANC · Hearing Health · MagSafe</div></div>
-    <div class="price-tag">₹24,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="audio apple" href="https://www.amazon.in/s?k=Apple+AirPods+Max&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Apple AirPods Max</div><div class="link-sub">Spatial Audio · head tracking · premium over-ear</div></div>
-    <div class="badge badge-premium">Premium</div><div class="price-tag">₹59,990</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=boAt+Airdopes+141+ANC&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎵</div><div class="link-info"><div class="link-name">boAt Airdopes 141 ANC</div><div class="link-sub">ANC at ₹1,299 · 42hrs total · India bestseller</div></div>
-    <div class="badge badge-budget">Budget</div><div class="price-tag">₹1,299</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=OnePlus+Buds+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">OnePlus Buds 4</div><div class="link-sub">#1 most searched earbuds India 2026</div></div>
-    <div class="price-tag">₹5,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Samsung+Galaxy+Buds+3+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Samsung Galaxy Buds 3 Pro</div><div class="link-sub">Blade design · ANC · 360° audio · Galaxy AI</div></div>
-    <div class="badge badge-hot">🔥 Hot</div><div class="price-tag">₹17,999</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Apple+AirPods+Max+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Apple AirPods Max 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
   <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sony+WH-1000XM6&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎵</div><div class="link-info"><div class="link-name">Sony WH-1000XM6</div><div class="link-sub">World's best ANC · 30hrs · LDAC hi-res</div></div>
-    <div class="badge badge-hot">🔥 Hot</div><div class="price-tag">₹29,990</div><div class="arrow">›</div>
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sony WH-1000XM6</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
   <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sony+WH-1000XM5&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎵</div><div class="link-info"><div class="link-name">Sony WH-1000XM5</div><div class="link-sub">Best ANC headphones · 30hrs · multipoint</div></div>
-    <div class="price-tag">₹26,990</div><div class="arrow">›</div>
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sony WH-1000XM5</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Bose+QuietComfort+45&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🎵</div><div class="link-info"><div class="link-name">Bose QuietComfort 45</div><div class="link-sub">Premium comfort · class-leading ANC</div></div>
-    <div class="price-tag">₹24,990</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sony+WF-1000XM6&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sony WF-1000XM6</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Bose+QuietComfort+Ultra+Earbuds+Gen+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Bose QuietComfort Ultra Earbuds Gen 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Bose+QuietComfort+Ultra+Headphones&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Bose QuietComfort Ultra Headphones</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Bose+Ultra+Open+Earbuds&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Bose Ultra Open Earbuds</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Samsung+Galaxy+Buds+4+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Samsung Galaxy Buds 4 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Samsung+Galaxy+Buds+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Samsung Galaxy Buds 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Beats+Powerbeats+Pro+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Beats Powerbeats Pro 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Beats+Studio+Buds+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Beats Studio Buds Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Beats+Fit+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Beats Fit Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Google+Pixel+Buds+2a&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Google Pixel Buds 2a</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Google+Pixel+Buds+Pro+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Google Pixel Buds Pro 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Soundcore+Liberty+5+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Soundcore Liberty 5 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=JBL+Tune+520BT+Wireless+On+Ear+Headphones&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">JBL Tune 520BT Wireless On Ear Headphones</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=JBL+Go+4+Ultra-Portable+Wireless+Bluetooth+Speaker&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">JBL Go 4 Ultra-Portable Wireless Bluetooth Speaker</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=JBL+Live+Beam+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">JBL Live Beam 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=JBL+Tour+Pro+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">JBL Tour Pro 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sony+WI-C100+Wireless+Headphones&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sony WI-C100 Wireless Headphones</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sony+LinkBuds+S&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sony LinkBuds S</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Jabra+Elite+10+Gen+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Jabra Elite 10 Gen 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Jabra+Elite+8+Active+Gen+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Jabra Elite 8 Active Gen 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sennheiser+Momentum+True+Wireless+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sennheiser Momentum True Wireless 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Sennheiser+Momentum+4+Wireless&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Sennheiser Momentum 4 Wireless</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Nothing+Ear+a&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Nothing Ear a</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Nothing+Ear+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Nothing Ear 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=CMF+by+Nothing+Buds+2+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">CMF by Nothing Buds 2 Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=EarFun+Air+Pro+4+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">EarFun Air Pro 4 Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Shokz+OpenFit&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Shokz OpenFit</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Shokz+OpenRun+Pro+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Shokz OpenRun Pro 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Anker+Soundcore+AeroClip&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Anker Soundcore AeroClip</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Anker+Soundcore+Life+P3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Anker Soundcore Life P3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Bowers+%26+Wilkins+Pi8&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Bowers & Wilkins Pi8</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=OnePlus+Buds+Pro+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">OnePlus Buds Pro 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Marshall+Motif+II+ANC&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Marshall Motif II ANC</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Marshall+Major+V&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Marshall Major V</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Skullcandy+Sesh+ANC&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Skullcandy Sesh ANC</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Huawei+FreeBuds+Pro+5&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Huawei FreeBuds Pro 5</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=JLab+JBuds+Air+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">JLab JBuds Air Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Edifier+NeoBuds+Pro+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Edifier NeoBuds Pro 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=TOZO+T6+True+Wireless&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">TOZO T6 True Wireless</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Raycon+The+Everyday+Earbuds&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Raycon The Everyday Earbuds</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Realme+Buds+Air+6+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Realme Buds Air 6 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Oppo+Enco+X3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Oppo Enco X3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Denon+PerL+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Denon PerL Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Cleer+Arc+II&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Cleer Arc II</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="audio" href="https://www.amazon.in/s?k=Master+%26+Dynamic+MW09&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🎧</div><div class="link-info"><div class="link-name">Master & Dynamic MW09</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
 
-  <!-- SMARTWATCHES -->
-  <div class="category cat-header" data-cat="watches"><div class="category-line"></div><div class="category-label">⌚ Smartwatches</div><div class="category-line"></div></div>
+  <div class="category cat-header" data-cat="smarthome"><div class="category-line"></div><div class="category-label">🏠 Smart Home Assistants & Staples</div><div class="category-line"></div></div>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Amazon+Echo+Dot+5th+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Amazon Echo Dot 5th Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Amazon+Echo+Pop&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Amazon Echo Pop</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Amazon+Echo+4th+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Amazon Echo 4th Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Amazon+Echo+Show+8+3rd+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Amazon Echo Show 8 3rd Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Google+Nest+Hub+2nd+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Google Nest Hub 2nd Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Google+Nest+Audio&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Google Nest Audio</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Google+Nest+Mini&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Google Nest Mini</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Apple+HomePod+mini&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Apple HomePod mini</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Aqara+Hub+M3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Aqara Hub M3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Aeotec+SmartThings+Hub+v3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Aeotec SmartThings Hub v3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Home+Assistant+Green+Yellow&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Home Assistant Green Yellow</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Ring+Video+Doorbell+3rd+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Ring Video Doorbell 3rd Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Eufy+Security+Video+Doorbell+Dual&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Eufy Security Video Doorbell Dual</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Philips+Hue+White+%26+Color+Ambiance+Bulbs&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Philips Hue White & Color Ambiance Bulbs</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Philips+Hue+Lightstrip+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Philips Hue Lightstrip Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Nest+Learning+Thermostat+4th+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Nest Learning Thermostat 4th Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Ecobee+Smart+Thermostat+Premium&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Ecobee Smart Thermostat Premium</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=TP-Link+Kasa+Smart+Plug&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">TP-Link Kasa Smart Plug</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Kasa+Smart+Light+Switch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Kasa Smart Light Switch</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Arlo+Pro+5S+2K&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Arlo Pro 5S 2K</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Wyze+Cam+v4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Wyze Cam v4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Wyze+Smart+Plug&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Wyze Smart Plug</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=August+Wi-Fi+Smart+Lock&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">August Wi-Fi Smart Lock</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Yale+Assure+Lock+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Yale Assure Lock 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Schlage+Encode+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Schlage Encode Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Kwikset+Halo+Smart+Lock&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Kwikset Halo Smart Lock</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Level+Lock+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Level Lock Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Blink+Outdoor+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Blink Outdoor 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Ring+Floodlight+Cam+Wired+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Ring Floodlight Cam Wired Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Ring+Stick+Up+Cam&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Ring Stick Up Cam</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Ring+Alarm+14-Piece+Kit&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Ring Alarm 14-Piece Kit</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Google+Nest+Cam+Battery&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Google Nest Cam Battery</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=TP-Link+Tapo+C200+Pan+Tilt+Camera&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">TP-Link Tapo C200 Pan Tilt Camera</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Nanoleaf+Shapes&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Nanoleaf Shapes</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Govee+LED+Strip+Lights&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Govee LED Strip Lights</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Govee+Glide+Hexa+Light+Panels&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Govee Glide Hexa Light Panels</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Lutron+Caseta+Smart+Dimmer+Switch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Lutron Caseta Smart Dimmer Switch</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Wemo+Smart+Plug+with+Thread&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Wemo Smart Plug with Thread</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Amazon+Smart+Plug&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Amazon Smart Plug</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Eve+Energy+Smart+Plug&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Eve Energy Smart Plug</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=iRobot+Roomba+j7%2B&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">iRobot Roomba j7+</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Roborock+S8+Pro+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Roborock S8 Pro Ultra</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Chamberlain+myQ+Smart+Garage+Control&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Chamberlain myQ Smart Garage Control</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Meross+Smart+Wi-Fi+Garage+Door+Opener&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Meross Smart Wi-Fi Garage Door Opener</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Sengled+Smart+Light+Bulbs&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Sengled Smart Light Bulbs</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=LIFX+Color+A19&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">LIFX Color A19</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=SwitchBot+Curtain+3&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">SwitchBot Curtain 3</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Sensibo+Sky+Smart+AC+Controller&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Sensibo Sky Smart AC Controller</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=Hatch+Restore+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">Hatch Restore 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="smarthome" href="https://www.amazon.in/s?k=SimpliSafe+8-Piece+Kit&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🏠</div><div class="link-info"><div class="link-name">SimpliSafe 8-Piece Kit</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
 
-  <a class="link-card" data-tags="watches apple" href="https://www.amazon.in/s?k=Apple+Watch+Series+10+42mm&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Apple Watch Series 10 — 42mm</div><div class="link-sub">Thinnest ever · sleep apnea · always-on</div></div>
-    <div class="price-tag">₹38,900</div><div class="arrow">›</div>
+  <div class="category cat-header" data-cat="laptops"><div class="category-line"></div><div class="category-label">💻 Laptops & Tablets</div><div class="category-line"></div></div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+MacBook+Air+M3+13-inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple MacBook Air M3 13-inch</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="watches apple" href="https://www.amazon.in/s?k=Apple+Watch+Series+10+46mm&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Apple Watch Series 10 — 46mm</div><div class="link-sub">Larger display · sleep apnea · GPS · swimproof</div></div>
-    <div class="price-tag">₹41,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+MacBook+Air+M3+15-inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple MacBook Air M3 15-inch</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="watches apple" href="https://www.amazon.in/s?k=Apple+Watch+Ultra+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Apple Watch Ultra 2</div><div class="link-sub">Adventure watch · titanium · 3000 nits · GPS</div></div>
-    <div class="badge badge-premium">Premium</div><div class="price-tag">₹89,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+MacBook+Pro+14-inch+M3+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple MacBook Pro 14-inch M3 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="watches" href="https://www.amazon.in/s?k=Realme+Watch+S5&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Realme Watch S5</div><div class="link-sub">AMOLED · GPS · 20 day battery · Calling</div></div>
-    <div class="badge badge-budget">Budget Pick</div><div class="price-tag">₹7,999</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+MacBook+Pro+16-inch+M3+Max&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple MacBook Pro 16-inch M3 Max</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="watches" href="https://www.amazon.in/s?k=Amazfit+Bip+5+Unity&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">⌚</div><div class="link-info"><div class="link-name">Amazfit Bip 5 Unity</div><div class="link-sub">AMOLED · GPS · Alexa · 10 day battery</div></div>
-    <div class="badge badge-pick">Best Value</div><div class="price-tag">₹4,499</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+iPad+Pro+M4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple iPad Pro M4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-
-  <!-- LAPTOPS -->
-  <div class="category cat-header" data-cat="laptops"><div class="category-line"></div><div class="category-label">💻 Laptops</div><div class="category-line"></div></div>
-
-  <a class="link-card" data-tags="laptops apple" href="https://www.amazon.in/s?k=MacBook+Air+M3+13+8GB&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">MacBook Air M3 13-inch 8GB</div><div class="link-sub">M3 chip · 18hr battery · 256GB SSD · fanless</div></div>
-    <div class="badge badge-hot">🔥 Most Searched</div><div class="price-tag">₹1,09,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+iPad+Air+M2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple iPad Air M2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="laptops apple" href="https://www.amazon.in/s?k=MacBook+Air+M3+13+16GB&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">MacBook Air M3 13-inch 16GB</div><div class="link-sub">M3 · 18hr battery · 16GB RAM · best value Pro</div></div>
-    <div class="price-tag">₹1,29,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+iPad+10th+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple iPad 10th Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="laptops apple" href="https://www.amazon.in/s?k=MacBook+Air+M3+15+inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">MacBook Air M3 15-inch</div><div class="link-sub">15.3 inch Liquid Retina · 18hr battery · big screen</div></div>
-    <div class="price-tag">₹1,34,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Apple+iPad+mini+7th+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Apple iPad mini 7th Gen</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
-  <a class="link-card" data-tags="laptops apple" href="https://www.amazon.in/s?k=MacBook+Pro+M3+14+inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">MacBook Pro M3 14-inch</div><div class="link-sub">M3 Pro · 120Hz Liquid Retina XDR · 18GB RAM</div></div>
-    <div class="price-tag">₹1,69,900</div><div class="arrow">›</div>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Dell+XPS+14&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Dell XPS 14</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Dell+XPS+16&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Dell XPS 16</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Dell+Inspiron+16+Plus&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Dell Inspiron 16 Plus</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Microsoft+Surface+Pro+11&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Microsoft Surface Pro 11</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Microsoft+Surface+Laptop+7&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Microsoft Surface Laptop 7</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Microsoft+Surface+Go+4&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Microsoft Surface Go 4</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Lenovo+ThinkPad+X1+Carbon+Gen+12&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Lenovo ThinkPad X1 Carbon Gen 12</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Lenovo+ThinkPad+T14s&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Lenovo ThinkPad T14s</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Lenovo+Yoga+9i&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Lenovo Yoga 9i</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Lenovo+Legion+Pro+7i&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Lenovo Legion Pro 7i</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Lenovo+Tab+P12&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Lenovo Tab P12</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Lenovo+IdeaPad+Duet+5+Chromebook&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Lenovo IdeaPad Duet 5 Chromebook</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Samsung+Galaxy+Tab+S10+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Samsung Galaxy Tab S10 Ultra</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Samsung+Galaxy+Book+4+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Samsung Galaxy Book 4 Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Samsung+Galaxy+Tab+S9+FE&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Samsung Galaxy Tab S9 FE</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Samsung+Galaxy+Tab+A9%2B&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Samsung Galaxy Tab A9+</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=HP+Spectre+x360+14&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">HP Spectre x360 14</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=HP+Envy+x360&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">HP Envy x360</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=HP+Chromebook+x360&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">HP Chromebook x360</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=HP+Pavilion+Aero+13&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">HP Pavilion Aero 13</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
   <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Asus+ROG+Zephyrus+G14&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Asus ROG Zephyrus G14</div><div class="link-sub">Best gaming laptop · RTX 4060 · AMD Ryzen</div></div>
-    <div class="price-tag">₹1,19,990</div><div class="arrow">›</div>
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Asus ROG Zephyrus G14</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Asus+ROG+Flow+Z13&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Asus ROG Flow Z13</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Asus+Zenbook+14+OLED&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Asus Zenbook 14 OLED</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Asus+Vivobook+S+15&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Asus Vivobook S 15</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Asus+Chromebook+Flip+CX5&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Asus Chromebook Flip CX5</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Acer+Swift+Go+14&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Acer Swift Go 14</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Acer+Chromebook+Spin+714&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Acer Chromebook Spin 714</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Acer+Predator+Helios+Neo+16&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Acer Predator Helios Neo 16</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Razer+Blade+16&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Razer Blade 16</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Framework+Laptop+13&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Framework Laptop 13</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Alienware+m16+R2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Alienware m16 R2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Amazon+Fire+HD+10&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Amazon Fire HD 10</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Amazon+Fire+HD+8+Kids+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Amazon Fire HD 8 Kids Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Amazon+Kindle+Scribe&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Amazon Kindle Scribe</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Google+Pixel+Tablet&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Google Pixel Tablet</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=OnePlus+Pad+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">OnePlus Pad 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=MSI+Stealth+14+Studio&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">MSI Stealth 14 Studio</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=LG+Gram+16&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">LG Gram 16</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Gigabyte+Aorus+15&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Gigabyte Aorus 15</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Remarkable+2+E-ink+tablet&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Remarkable 2 E-ink tablet</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Boox+Note+Air+3+C&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Boox Note Air 3 C</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="laptops" href="https://www.amazon.in/s?k=Kobo+Elipsa+2E&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">💻</div><div class="link-info"><div class="link-name">Kobo Elipsa 2E</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
   </a>
 
-  <!-- IPADS -->
-  <div class="category cat-header" data-cat="apple accessories"><div class="category-line"></div><div class="category-label">📱 iPads & Apple Accessories</div><div class="category-line"></div></div>
+  <div class="category cat-header" data-cat="productivity"><div class="category-line"></div><div class="category-label">🖥️ Productivity & Home Appliances</div><div class="category-line"></div></div>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Logitech+MK295+Silent+Wireless+Combo+Keyboard+Mouse&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Logitech MK295 Silent Wireless Combo Keyboard Mouse</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Logitech+MX+Master+3S+Mouse&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Logitech MX Master 3S Mouse</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Logitech+MX+Keys+Advanced+Wireless+Keyboard&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Logitech MX Keys Advanced Wireless Keyboard</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Logitech+Brio+4K+Webcam&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Logitech Brio 4K Webcam</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Epson+EcoTank+L3250+Printer&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Epson EcoTank L3250 Printer</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Brother+HL-L2390DW+Laser+Printer&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Brother HL-L2390DW Laser Printer</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=ProtoArc+EM11+NL+Ergonomic+Vertical+Mouse&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">ProtoArc EM11 NL Ergonomic Vertical Mouse</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Philips+NA120+Air+Fryer&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Philips NA120 Air Fryer</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=GE+Profile+Smart+4-Door+French-Door+Refrigerator&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">GE Profile Smart 4-Door French-Door Refrigerator</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=GE+Profile+Opal+Mini+Nugget+Ice+Maker&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">GE Profile Opal Mini Nugget Ice Maker</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Samsung+Smart+Refrigerator+Family+Hub&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Samsung Smart Refrigerator Family Hub</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Samsung+Frame+4K+Smart+TV&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Samsung Frame 4K Smart TV</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Sony+Bravia+8K+Smart+TV&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Sony Bravia 8K Smart TV</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=LG+Smart+Washing+Machine+Auto-wash&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">LG Smart Washing Machine Auto-wash</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=LG+Dual+Inverter+Smart+AC&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">LG Dual Inverter Smart AC</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=LG+UltraFine+4K+Display&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">LG UltraFine 4K Display</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Padmini+4+Burner+Gas+Stove&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Padmini 4 Burner Gas Stove</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Padmini+Electric+Induction+Stove&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Padmini Electric Induction Stove</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Padmini+Electric+Tandoor&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Padmini Electric Tandoor</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Dyson+Purifier+Cool+Smart+Air+Purifier&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Dyson Purifier Cool Smart Air Purifier</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=A.O.+Smith+Smart+Geyser&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">A.O. Smith Smart Geyser</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Atomberg+Smart+WiFi+Ceiling+Fan&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Atomberg Smart WiFi Ceiling Fan</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Breville+Smart+Oven+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Breville Smart Oven Pro</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Nespresso+Vertuo+Next+Wi-Fi+Coffee+Maker&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Nespresso Vertuo Next Wi-Fi Coffee Maker</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Instant+Pot+Pro+Plus+Wi-Fi&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Instant Pot Pro Plus Wi-Fi</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=CalDigit+TS4+Thunderbolt+4+Dock&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">CalDigit TS4 Thunderbolt 4 Dock</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Herman+Miller+Aeron+Chair&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Herman Miller Aeron Chair</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Steelcase+Gesture+Office+Chair&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Steelcase Gesture Office Chair</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Secretlab+Titan+Evo+2026&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Secretlab Titan Evo 2026</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Dell+UltraSharp+32+4K+USB-C+Hub+Monitor&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Dell UltraSharp 32 4K USB-C Hub Monitor</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=BenQ+ScreenBar+Halo+Monitor+Light&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">BenQ ScreenBar Halo Monitor Light</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Elgato+Stream+Deck+MK.2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Elgato Stream Deck MK.2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Blue+Yeti+X+USB+Microphone&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Blue Yeti X USB Microphone</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Keychron+Q1+Pro+Mechanical+Keyboard&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Keychron Q1 Pro Mechanical Keyboard</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Nuphy+Air75+V2+Keyboard&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Nuphy Air75 V2 Keyboard</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Lume+Cube+Edge+Desk+Light&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Lume Cube Edge Desk Light</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Vari+Electric+Standing+Desk&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Vari Electric Standing Desk</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Uplift+V2+Standing+Desk&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Uplift V2 Standing Desk</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Fujitsu+ScanSnap+iX1600+Document+Scanner&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Fujitsu ScanSnap iX1600 Document Scanner</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Eufy+Clean+X9+Pro+Robot+Vacuum&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Eufy Clean X9 Pro Robot Vacuum</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Roborock+S8+MaxV+Ultra&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Roborock S8 MaxV Ultra</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Shark+IQ+Robot+Self-Empty&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Shark IQ Robot Self-Empty</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=KitchenAid+Artisan+Stand+Mixer&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">KitchenAid Artisan Stand Mixer</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Vitamix+A3500+Ascent+Series+Blender&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Vitamix A3500 Ascent Series Blender</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Fellow+Stagg+EKG+Electric+Kettle&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Fellow Stagg EKG Electric Kettle</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Ember+Temperature+Control+Smart+Mug+2&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Ember Temperature Control Smart Mug 2</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Balmuda+The+Toaster&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Balmuda The Toaster</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Anova+Culinary+Precision+Cooker+Pro+Sous+Vide&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Anova Culinary Precision Cooker Pro Sous Vide</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Meater+Plus+Smart+Meat+Thermometer&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Meater Plus Smart Meat Thermometer</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="link-card" data-tags="productivity" href="https://www.amazon.in/s?k=Withings+Body+Smart+Scale&tag=gadgetpuls061-21" target="_blank" rel="noopener">
+    <div class="icon-wrap">🖥️</div><div class="link-info"><div class="link-name">Withings Body Smart Scale</div><div class="link-sub">View on Amazon India</div></div>
+    <div class="arrow">›</div>
+  </a>
+  <div id="noResults" class="no-results" style="display:none">
+    🔍 No products found. Try a different search term.
+  </div>
 
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=iPad+Pro+M4+11+inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPad Pro M4 11-inch</div><div class="link-sub">M4 chip · Ultra Retina XDR OLED · thinnest ever</div></div>
-    <div class="badge badge-premium">Premium</div><div class="price-tag">₹99,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=iPad+Air+M2+13+inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPad Air M2 13-inch</div><div class="link-sub">M2 chip · 13 inch · best iPad for productivity</div></div>
-    <div class="price-tag">₹79,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=iPad+Air+M2+11+inch&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPad Air M2 11-inch</div><div class="link-sub">M2 chip · Liquid Retina · Apple Pencil Pro · 5G</div></div>
-    <div class="price-tag">₹59,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=iPad+mini+7&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPad mini 7</div><div class="link-sub">A17 Pro · 8.3 inch · Apple Pencil Pro · compact</div></div>
-    <div class="price-tag">₹49,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=iPad+10th+Gen&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📱</div><div class="link-info"><div class="link-name">iPad 10th Gen</div><div class="link-sub">A14 Bionic · 10.9 inch · USB-C · great budget iPad</div></div>
-    <div class="badge badge-pick">Best Value</div><div class="price-tag">₹34,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=Apple+Pencil+Pro&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">✏️</div><div class="link-info"><div class="link-name">Apple Pencil Pro</div><div class="link-sub">Squeeze · Find My · Hover · Barrel Roll</div></div>
-    <div class="price-tag">₹11,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=Apple+Pencil+USB-C&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">✏️</div><div class="link-info"><div class="link-name">Apple Pencil USB-C</div><div class="link-sub">Budget Apple Pencil · USB-C charging</div></div>
-    <div class="badge badge-budget">Budget</div><div class="price-tag">₹7,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=MagSafe+Charger+25W&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🔌</div><div class="link-info"><div class="link-name">MagSafe Charger 25W</div><div class="link-sub">25W fast MagSafe · for iPhone 12 and above</div></div>
-    <div class="price-tag">₹4,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=Apple+20W+USB-C+Power+Adapter&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🔌</div><div class="link-info"><div class="link-name">Apple 20W USB-C Power Adapter</div><div class="link-sub">Compact fast charger · for iPhone and iPad</div></div>
-    <div class="price-tag">₹1,900</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="apple accessories" href="https://www.amazon.in/s?k=Apple+HomePod+mini&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">🔊</div><div class="link-info"><div class="link-name">Apple HomePod mini</div><div class="link-sub">360° audio · Siri · smart home hub · Intercom</div></div>
-    <div class="price-tag">₹9,900</div><div class="arrow">›</div>
-  </a>
-
-  <!-- ACCESSORIES -->
-  <div class="category cat-header" data-cat="accessories"><div class="category-line"></div><div class="category-label">🔌 Accessories & More</div><div class="category-line"></div></div>
-
-  <a class="link-card" data-tags="accessories" href="https://www.amazon.in/s?k=Ambrane+65W+GaN+Charger&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">⚡</div><div class="link-info"><div class="link-name">Ambrane 65W GaN Charger</div><div class="link-sub">65W · 3 ports · USB-C + USB-A · charges laptop</div></div>
-    <div class="badge badge-budget">Budget</div><div class="price-tag">₹1,299</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="accessories" href="https://www.amazon.in/s?k=Samsung+T7+Shield+SSD+1TB&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">💾</div><div class="link-info"><div class="link-name">Samsung T7 Shield SSD 1TB</div><div class="link-sub">1050MB/s · IP65 · 3m drop resistant · USB-C</div></div>
-    <div class="badge badge-hot">🔥 Hot</div><div class="price-tag">₹8,999</div><div class="arrow">›</div>
-  </a>
-  <a class="link-card" data-tags="accessories" href="https://www.amazon.in/s?k=Amazon+Fire+TV+Stick+4K+Max&tag=gadgetpuls061-21" target="_blank" rel="noopener">
-    <div class="icon-wrap">📺</div><div class="link-info"><div class="link-name">Amazon Fire TV Stick 4K Max</div><div class="link-sub">4K · Dolby Vision · Wi-Fi 6 · Alexa remote</div></div>
-    <div class="badge badge-hot">🔥 Hot</div><div class="price-tag">₹6,999</div><div class="arrow">›</div>
-  </a>
-
-  <!-- Amazon note -->
   <div class="amazon-note">
     <div class="amazon-dot"></div>
     All links go to Amazon India · Affiliate links support GadgetPulse India at no extra cost
@@ -334,21 +1347,51 @@
 function filterCards(tag, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  document.getElementById('searchInput').value = '';
   const cards = document.querySelectorAll('.link-card');
   const headers = document.querySelectorAll('.cat-header');
   if (tag === 'all') {
     cards.forEach(c => c.classList.remove('hidden'));
     headers.forEach(h => h.style.display = '');
+  } else {
+    cards.forEach(c => {
+      const tags = c.getAttribute('data-tags') || '';
+      c.classList.toggle('hidden', tags !== tag);
+    });
+    headers.forEach(h => {
+      const cat = h.getAttribute('data-cat') || '';
+      h.style.display = cat === tag ? '' : 'none';
+    });
+  }
+  document.getElementById('noResults').style.display = 'none';
+}
+
+function searchProducts(query) {
+  const q = query.trim().toLowerCase();
+  const cards = document.querySelectorAll('.link-card');
+  const headers = document.querySelectorAll('.cat-header');
+
+  if (q === '') {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn').classList.add('active');
+    cards.forEach(c => c.classList.remove('hidden'));
+    headers.forEach(h => h.style.display = '');
+    document.getElementById('noResults').style.display = 'none';
     return;
   }
+
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  headers.forEach(h => h.style.display = 'none');
+
+  let visibleCount = 0;
   cards.forEach(c => {
-    const tags = c.getAttribute('data-tags') || '';
-    c.classList.toggle('hidden', !tags.includes(tag));
+    const name = c.querySelector('.link-name').textContent.toLowerCase();
+    const match = name.includes(q);
+    c.classList.toggle('hidden', !match);
+    if (match) visibleCount++;
   });
-  headers.forEach(h => {
-    const cat = h.getAttribute('data-cat') || '';
-    h.style.display = cat.includes(tag) ? '' : 'none';
-  });
+
+  document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
 }
 </script>
 </body>
