@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GadgetPulse Drops – Daily Deals</title>
+<meta name="description" content="Today's best deals across fashion, home, electronics & more. Curated daily, picked for India."/>
+<link rel="canonical" href="https://gadgetpulse.co.in/deals-hub.html" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYXJ2V7XM5"></script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3162923018320282" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYXJ2V7XM5');
+</script>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --paper:#F7F2E9;
+    --paper-deep:#EFE7D6;
+    --line:#DCD0B4;
+    --ink:#211B14;
+    --ink-soft:#766C57;
+    --stamp:#D8472B;
+    --stamp-dark:#B33A22;
+    --gold:#B9821C;
+    --mint:#2F7D5B;
+    --mint-bg:#E4EEE6;
+    --font-display:'Archivo Black',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+    --font-body:'Work Sans',sans-serif;
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper-deep);
+    color:var(--ink);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;border:none;background:none;cursor:pointer;}
+
+  ::-webkit-scrollbar{width:4px;height:4px;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
+
+  .page{
+    max-width:480px;margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 40px rgba(0,0,0,0.08);
+    position:relative;
+  }
+
+  /* ── HEADER ── */
+  .header{
+    padding:28px 20px 18px;
+    text-align:center;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 10px, rgba(33,27,20,0.025) 10px 20px),
+      var(--paper);
+    border-bottom:2px solid var(--ink);
+  }
+  .avatar{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-size:1.4rem;
+    margin:0 auto 12px;
+    border:3px solid var(--gold);
+  }
+  .brand{font-family:var(--font-display);font-size:1.3rem;letter-spacing:-0.01em;}
+  .brand span{color:var(--stamp);}
+  .tagline{font-size:0.82rem;color:var(--ink-soft);margin-top:4px;font-weight:500;}
+  .ig-row{
+    margin-top:16px;display:flex;justify-content:center;gap:10px;
+  }
+  .ig-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--ink);color:var(--paper);
+    font-size:0.78rem;font-weight:700;
+    padding:9px 16px;border-radius:30px;
+    font-family:var(--font-mono);
+  }
+  .ig-btn:hover{background:var(--stamp);}
+
+  /* ── TICKER ── */
+  .ticker-wrap{
+    background:var(--ink);color:var(--paper);
+    overflow:hidden;white-space:nowrap;padding:7px 0;
+  }
+  .ticker{display:inline-flex;gap:40px;animation:tick 22s linear infinite;padding-left:40px;}
+  .ticker:hover{animation-play-state:paused;}
+  @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .ticker span{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.02em;}
+  .ticker .dot{color:var(--gold);}
+
+  /* ── CATEGORY CHIPS ── */
+  .chip-row{
+    display:flex;gap:8px;overflow-x:auto;padding:16px 16px 4px;
+    scrollbar-width:none;
+  }
+  .chip-row::-webkit-scrollbar{display:none;}
+  .chip{
+    flex-shrink:0;font-family:var(--font-mono);font-size:0.72rem;font-weight:600;
+    padding:7px 14px;border-radius:20px;border:1.5px solid var(--ink);
+    color:var(--ink);white-space:nowrap;transition:all .15s;
+  }
+  .chip.active{background:var(--stamp);color:var(--paper);border-color:var(--stamp);}
+
+  /* ── FEATURED HERO TICKET ── */
+  .hero-wrap{padding:14px 16px 4px;}
+  .hero-label{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:700;
+    color:var(--stamp);letter-spacing:0.08em;margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .hero-label::before{content:"●";font-size:0.6rem;animation:blink 1.4s infinite;}
+  @keyframes blink{50%{opacity:.2}}
+
+  /* ── DEAL LIST ── */
+  .deal-list{padding:6px 16px 10px;display:flex;flex-direction:column;gap:16px;}
+
+  .ticket{
+    position:relative;
+    background:#FFFDF8;
+    border:1.5px solid var(--ink);
+    border-radius:14px;
+    padding:16px 16px 0;
+    overflow:hidden;
+  }
+  .ticket.hero{border-color:var(--stamp);border-width:2px;}
+  .ticket-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+  .ticket-no{font-family:var(--font-mono);font-size:0.68rem;color:var(--ink-soft);}
+  .stamp-badge{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:700;
+    color:var(--stamp-dark);border:1.5px solid var(--stamp-dark);
+    padding:3px 9px;border-radius:30px;transform:rotate(3deg);
+    background:rgba(216,71,43,0.06);
+  }
+  .ticket-body{display:flex;gap:12px;align-items:center;}
+  .ticket-emoji{
+    width:50px;height:50px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+    background:var(--paper-deep);border:1px solid var(--line);
+  }
+  .ticket-info{flex:1;min-width:0;}
+  .ticket-cat{font-family:var(--font-mono);font-size:0.62rem;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
+  .ticket-name{font-size:0.95rem;font-weight:700;line-height:1.25;margin-top:2px;}
+  .ticket-desc{font-size:0.76rem;color:var(--ink-soft);margin-top:3px;line-height:1.35;}
+
+  .ticket-prices{display:flex;align-items:baseline;gap:8px;margin-top:12px;}
+  .price-now{font-family:var(--font-mono);font-size:1.15rem;font-weight:700;color:var(--ink);}
+  .price-old{font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-soft);text-decoration:line-through;}
+
+  .perforation{
+    margin:14px -16px 0;height:0;border-top:2px dashed var(--line);position:relative;
+  }
+  .perforation::before,.perforation::after{
+    content:"";position:absolute;top:-7px;width:14px;height:14px;border-radius:50%;
+    background:var(--paper-deep);border:1.5px solid var(--ink);
+  }
+  .perforation::before{left:-7px;}
+  .perforation::after{right:-7px;}
+
+  .grab-row{padding:12px 0 14px;display:flex;}
+  .grab-btn{
+    flex:1;text-align:center;background:var(--ink);color:var(--paper);
+    font-family:var(--font-mono);font-weight:700;font-size:0.8rem;
+    padding:11px 0;border-radius:8px;letter-spacing:0.02em;
+    transition:background .15s;
+  }
+  .grab-btn:hover{background:var(--stamp);}
+  .grab-btn.mint{background:var(--mint);}
+
+  .no-results{text-align:center;padding:50px 20px;color:var(--ink-soft);font-size:0.85rem;}
+
+  /* ── COMMISSION-AWARE SAVINGS NOTE ── */
+  .insight-card{
+    margin:6px 16px 0;background:var(--mint-bg);border:1.5px solid var(--mint);
+    border-radius:12px;padding:12px 14px;font-size:0.74rem;color:#1f5c41;line-height:1.4;
+  }
+  .insight-card b{color:var(--mint);}
+
+  /* ── FOOTER ── */
+  .footer{
+    margin-top:20px;padding:20px 20px 36px;border-top:2px solid var(--ink);
+    text-align:center;
+  }
+  .footer .brand{font-size:1rem;}
+  .footer-disclosure{
+    font-size:0.68rem;color:var(--ink-soft);margin-top:10px;line-height:1.5;
+    font-family:var(--font-mono);
+  }
+  .footer-links{margin-top:10px;display:flex;gap:14px;justify-content:center;font-size:0.74rem;}
+  .footer-links a{color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink);}
+
+  .toast{
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:30px;
+    font-size:0.78rem;font-family:var(--font-mono);opacity:0;transition:all .25s;
+    pointer-events:none;z-index:999;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .skel{background:linear-gradient(90deg,var(--paper-deep),var(--line),var(--paper-deep));background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:8px;}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="avatar">GP</div>
+    <div class="brand">GadgetPulse <span>Drops</span></div>
+    <div class="tagline">Today's best deals · fashion · home · tech · more</div>
+    <div class="ig-row">
+      <a class="ig-btn" id="ig-link" href="https://instagram.com/" target="_blank" rel="noopener">📸 Follow on Instagram</a>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker"><!-- populated by JS --></div>
+  </div>
+
+  <!-- CATEGORY CHIPS -->
+  <div class="chip-row" id="chip-row">
+    <button class="chip active" data-cat="All">All</button>
+    <button class="chip" data-cat="Fashion">👗 Fashion & Beauty</button>
+    <button class="chip" data-cat="Home">🏠 Home & Kitchen</button>
+    <button class="chip" data-cat="Electronics">🔌 Electronics</button>
+    <button class="chip" data-cat="Sports">⚽ Sports & Auto</button>
+    <button class="chip" data-cat="Toys">🧸 Books & Toys</button>
+  </div>
+
+  <!-- DEALS -->
+  <div class="hero-wrap">
+    <div class="hero-label">Drop of the day</div>
+  </div>
+  <div class="deal-list" id="deal-list">
+    <div class="ticket" style="pointer-events:none">
+      <div class="ticket-body">
+        <div class="skel" style="width:50px;height:50px"></div>
+        <div style="flex:1"><div class="skel" style="height:14px;width:80%;margin-bottom:6px"></div><div class="skel" style="height:12px;width:60%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="brand">Gadget<span style="color:var(--stamp)">Pulse</span></div>
+    <div class="footer-links">
+      <a href="/index1.html">Main Site</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="footer-disclosure">
+      As an Amazon Associate, GadgetPulse India earns from qualifying purchases at no extra cost to you.<br>
+      Affiliate tag: gadgetpuls061-21 &nbsp;|&nbsp; gadgetpulse.co.in@gmail.com
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════
+   CONFIG
+   — Add a new tab in your existing Google Sheet called "InstaDeals",
+     publish it (File → Share → Publish to web → CSV), then paste the
+     resulting URL below. Until you do, the page runs on DEFAULT_DEALS.
+   Columns expected: name, emoji, description, price, old_price, discount,
+   category (Fashion/Home/Electronics/Sports/Toys), amazon_url, active, featured
+═══════════════════════════════════════════ */
+const DEALS_CSV_URL = ''; // <-- paste published CSV link here when ready
+const AFFILIATE_TAG  = 'gadgetpuls061-21';
+
+/* Default deals — weighted toward HIGH commission categories
+   (Fashion/Beauty 10%, Home/Kitchen 5%) over electronics (3.5%, 1% phones) */
+const DEFAULT_DEALS = [
+  {emoji:'👟',name:'Running Shoes – Mesh Sport',description:'Breathable mesh · cushioned sole',price:'₹1,499',old_price:'₹3,499',discount:'57% OFF',amazon_url:`https://www.amazon.in/s?k=mens+running+shoes&tag=${AFFILIATE_TAG}`,category:'Fashion',featured:'TRUE'},
+  {emoji:'⌚',name:"Fastrack Men's Watch",description:'Analog · stainless steel strap',price:'₹1,295',old_price:'₹2,995',discount:'56% OFF',amazon_url:`https://www.amazon.in/s?k=fastrack+watch&tag=${AFFILIATE_TAG}`,category:'Fashion'},
+  {emoji:'💄',name:"Lakmé Beauty Combo",description:'Lipstick + kajal + compact set',price:'₹699',old_price:'₹1,295',discount:'46% OFF',amazon_url:`https://www.amazon.in/s?k=lakme+beauty+combo&tag=${AFFILIATE_TAG}`,category:'Fashion'},
+  {emoji:'🎒',name:'Travel Backpack 35L',description:'Water-resistant · laptop sleeve',price:'₹1,199',old_price:'₹2,499',discount:'52% OFF',amazon_url:`https://www.amazon.in/s?k=travel+backpack+35l&tag=${AFFILIATE_TAG}`,category:'Fashion'},
+  {emoji:'🍳',name:'Non-Stick Cookware Set',description:'5-piece · induction friendly',price:'₹1,799',old_price:'₹3,999',discount:'55% OFF',amazon_url:`https://www.amazon.in/s?k=nonstick+cookware+set&tag=${AFFILIATE_TAG}`,category:'Home'},
+  {emoji:'🛏️',name:'Cotton Bedsheet Set',description:'King size · 2 pillow covers',price:'₹899',old_price:'₹1,999',discount:'55% OFF',amazon_url:`https://www.amazon.in/s?k=cotton+bedsheet+king+size&tag=${AFFILIATE_TAG}`,category:'Home'},
+  {emoji:'🪑',name:'Folding Study Chair',description:'Ergonomic · adjustable height',price:'₹2,399',old_price:'₹4,999',discount:'52% OFF',amazon_url:`https://www.amazon.in/s?k=study+chair+ergonomic&tag=${AFFILIATE_TAG}`,category:'Home'},
+  {emoji:'🎧',name:'boAt Rockerz Earbuds',description:'ANC · 32hr playback',price:'₹1,299',old_price:'₹2,990',discount:'57% OFF',amazon_url:`https://www.amazon.in/s?k=boat+rockerz+earbuds&tag=${AFFILIATE_TAG}`,category:'Electronics'},
+  {emoji:'🔌',name:'65W GaN Fast Charger',description:'Type-C · 3 port',price:'₹1,099',old_price:'₹2,199',discount:'50% OFF',amazon_url:`https://www.amazon.in/s?k=65w+gan+charger&tag=${AFFILIATE_TAG}`,category:'Electronics'},
+  {emoji:'🏏',name:'Cricket Kit – Starter',description:'Bat + ball + gloves combo',price:'₹1,599',old_price:'₹2,999',discount:'47% OFF',amazon_url:`https://www.amazon.in/s?k=cricket+kit+starter&tag=${AFFILIATE_TAG}`,category:'Sports'},
+  {emoji:'📚',name:'Bestseller Fiction Pack',description:'3-book combo · trending reads',price:'₹499',old_price:'₹999',discount:'50% OFF',amazon_url:`https://www.amazon.in/s?k=bestseller+fiction+combo&tag=${AFFILIATE_TAG}`,category:'Toys'},
+];
+
+let allDeals = [];
+let activeCat = 'All';
+
+function showToast(msg, dur=2400){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), dur);
+}
+
+function parseCSV(text){
+  const lines = text.trim().split('\n');
+  const headers = lines[0].split(',').map(h=>h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
+  return lines.slice(1).map(line=>{
+    const cols=[]; let cur='', inQ=false;
+    for(let i=0;i<line.length;i++){
+      const c=line[i];
+      if(c==='"'){inQ=!inQ;}
+      else if(c===','&&!inQ){cols.push(cur);cur='';}
+      else cur+=c;
+    }
+    cols.push(cur);
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=(cols[i]||'').replace(/^"|"$/g,'').trim());
+    return obj;
+  });
+}
+
+function renderTicker(deals){
+  const el = document.getElementById('ticker');
+  const items = deals.slice(0,8);
+  const html = items.map(d=>`<span><span class="dot">●</span> ${d.name} — ${d.discount||''}</span>`).join('');
+  el.innerHTML = html + html; // duplicate for seamless scroll
+}
+
+function ticketHTML(d, i){
+  const isHero = d.featured === 'TRUE' || d.featured === 'true' || d.featured === '1';
+  return `<div class="ticket ${isHero?'hero':''}">
+    <div class="ticket-top">
+      <span class="ticket-no">No. ${String(i+1).padStart(4,'0')}</span>
+      ${d.discount ? `<span class="stamp-badge">${d.discount}</span>` : ''}
+    </div>
+    <div class="ticket-body">
+      <div class="ticket-emoji">${d.emoji||'🛍️'}</div>
+      <div class="ticket-info">
+        <div class="ticket-cat">${d.category||'Deal'}</div>
+        <div class="ticket-name">${d.name}</div>
+        <div class="ticket-desc">${d.description||''}</div>
+      </div>
+    </div>
+    <div class="ticket-prices">
+      <span class="price-now">${d.price||''}</span>
+      ${d.old_price ? `<span class="price-old">${d.old_price}</span>` : ''}
+    </div>
+    <div class="perforation"></div>
+    <div class="grab-row">
+      <a class="grab-btn ${isHero?'mint':''}" href="${d.amazon_url||'#'}" target="_blank" rel="noopener noreferrer" onclick="trackClick('${(d.name||'').replace(/'/g,'')}')">Grab This Deal →</a>
+    </div>
+  </div>`;
+}
+
+function trackClick(name){
+  if (typeof gtag === 'function') gtag('event', 'deal_click', { deal_name: name });
+}
+
+function renderDeals(){
+  const el = document.getElementById('deal-list');
+  const list = activeCat === 'All' ? allDeals : allDeals.filter(d => (d.category||'').toLowerCase() === activeCat.toLowerCase());
+  if (!list.length){ el.innerHTML = '<div class="no-results">No deals in this category right now. Check back soon →</div>'; return; }
+  // featured / hero deal first
+  const sorted = [...list].sort((a,b)=>{
+    const af = a.featured==='TRUE'||a.featured==='true'||a.featured==='1';
+    const bf = b.featured==='TRUE'||b.featured==='true'||b.featured==='1';
+    return (bf?1:0)-(af?1:0);
+  });
+  el.innerHTML = sorted.map((d,i)=>ticketHTML(d,i)).join('');
+}
+
+function filterCat(cat){
+  activeCat = cat;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active', c.dataset.cat===cat));
+  renderDeals();
+}
+
+document.querySelectorAll('.chip').forEach(btn=>{
+  btn.addEventListener('click', ()=>filterCat(btn.dataset.cat));
+});
+
+async function loadDeals(){
+  if (!DEALS_CSV_URL){
+    allDeals = DEFAULT_DEALS;
+    renderTicker(allDeals);
+    renderDeals();
+    return;
+  }
+  try{
+    const res = await fetch(DEALS_CSV_URL);
+    if(!res.ok) throw new Error('fail');
+    const text = await res.text();
+    const parsed = parseCSV(text);
+    const active = parsed.filter(d => d.active==='TRUE'||d.active==='true'||d.active==='1');
+    allDeals = active.length ? active : DEFAULT_DEALS;
+  }catch{
+    allDeals = DEFAULT_DEALS;
+  }
+  renderTicker(allDeals);
+  renderDeals();
+}
+
+loadDeals();
+</script>
+</body>
+</html>
